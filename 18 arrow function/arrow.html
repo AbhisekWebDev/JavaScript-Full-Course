@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>If the function has only one statement, and the statement returns a value, we can remove the brackets and the return keyword:</p>
+    <p>
+        let hello = ""; <br>
+        hello = () => "Hello World!"; <br>
+        document.getElementById("result").innerHTML = hello(); <br>
+    </p>
+    <p id="result"></p>
+    <br>
+    <hr>
+    <p>If we have parameters, we pass them inside the parentheses:</p>
+    <p>
+        let hello1 = ""; <br>
+        hello1 = (value) => "Hello " + value; <br>
+        document.getElementById("result1").innerHTML = hello1("Universe!"); <br>
+    </p>
+    <p id="result1"></p>
+    <br>
+    <hr>
+    <p>If we have only one parameter, we can skip the parenthesis:</p>
+    <p>
+        let hello2 = ""; <br>
+        hello2 = value => "Hello " + value; <br>
+        document.getElementById("result2").innerHTML = hello2("Universe!"); <br>
+    </p>
+    <p id="result2"></p>
+    <br>
+    <hr>
+    <p>This example demonstrate that in Arrow Functions, the "this" keyword represents the object that owns the function, no matter who calls the function.</p>
+    <p>Click the button to execute the "hello" function again, and you will see that "this" still  represents the window object.</p>
+    <button id="btn">Click Me!</button>
+    <p id="result3"></p>
+
+    <script>
+
+    // If the function has only one statement, and the statement returns a value, we can remove the brackets and the return keyword:
+        let hello = "";
+        hello = () => "Hello World!";
+        document.getElementById("result").innerHTML = hello();
+
+
+    // If we have parameters, we pass them inside the parentheses:
+        let hello1 = "";
+        hello1 = (value) => "Hello " + value;
+        document.getElementById("result1").innerHTML = hello1("Universe!");
+
+
+    // If we have only one parameter, we can skip the parenthesis:
+        let hello2 = "";
+        hello2 = value => "Hello " + value;
+        document.getElementById("result2").innerHTML = hello2("Universe!");
+
+
+    // With an arrow function this represents the owner of the function:
+        let hello3 = "";
+        hello3 = () => {
+            document.getElementById("result3").innerHTML += this;
+        }
+
+        //The window object calls the function:
+        window.addEventListener("load", hello3);
+
+        //A button object calls the function:
+        document.getElementById("btn").addEventListener("click", hello3);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <p id="p1">My Name is Abhisek Kumar</p>
+        <p id="p2">I live in W.B</p>
+    </div>
+
+    <br>
+    
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+      </div>
+
+    <script>
+
+    // Creating New HTML Elements (Nodes)
+        // To add a new element to the HTML DOM, you must create the element (element node) first, and then append it to an existing element.
+
+        // element banaye
+        const p3 = document.createElement("p");
+        // element ka content likhe
+        const node = document.createTextNode("SLIM SHADY");
+        // element me append kiye
+        p3.appendChild(node);
+
+        // p3 element ko container me append kiye
+        document.getElementById("container").appendChild(p3);
+
+
+    // Creating new HTML Elements - insertBefore()
+        // The appendChild() method in the previous example, appended the new element as the last child of the parent.
+        // If you don't want that, we can use the insertBefore() method:
+
+        const p = document.createElement("p");
+
+        const node1 = document.createTextNode("Hi!");
+
+        p.appendChild(node1);
+
+        const element = document.getElementById("container");
+        const child = document.getElementById("p1");
+
+        element.insertBefore(p, child);
+
+
+    // Removing Existing HTML Elements
+        // To remove an HTML element, use the remove() method:
+
+        document.getElementById("p2").remove();
+
+
+    // Removing a Child Node
+
+        const parent = document.getElementById("container");
+        const child1 = document.getElementById("p1");
+
+        parent.removeChild(child);
+
+
+    // Replacing HTML Elements 
+
+    const para = document.createElement("p");
+    const node2 = document.createTextNode("This is new.");
+
+    para.appendChild(node);
+
+    const parent1 = document.getElementById("div1");
+    const chil2 = document.getElementById("p1");
+
+    parent.replaceChild(para, child);
+
+    </script>
+</body>
+</html>

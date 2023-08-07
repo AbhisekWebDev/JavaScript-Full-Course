@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Confirm Box <br>
+        A confirm box is often used if you want the user to verify or accept something. <br>
+        When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed. <br>
+        If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.
+    </p>
+    <button onclick="myFun()">Try Kar K Dekho</button>
+    <p id="result"></p>
+    <br>
+    <p>
+        Prompt Box <br>
+        A prompt box is often used if you want the user to input a value before entering a page. <br>
+        When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value. <br>
+        If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.
+    </p>
+    <button onclick="myFunction()">Ye Bhi Try Kar K Dekho</button>
+    <p id="result1"></p>
+
+    <script>
+
+    // Confirm Box
+        // A confirm box is often used if you want the user to verify or accept something.
+        // When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+        // If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.
+
+        // Syntax
+        // window.confirm("sometext");
+        // The window.confirm() method can be written without the window prefix.
+    
+        function myFun() {
+
+            var text;
+
+            if(confirm("Press button!!!")) {
+                text = "You pressed Slim Shady";
+            } else {
+                text = "You pressed cancelled";
+            }
+
+            document.getElementById("result").innerHTML = text;
+
+        }
+
+
+    // Prompt Box
+        // A prompt box is often used if you want the user to input a value before entering a page.
+        // When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value.
+        // If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.
+
+        // Syntax
+        // window.prompt("sometext","defaultText");
+        // The window.prompt() method can be written without the window prefix.
+
+        function myFunction() {
+
+            let text1;
+
+            let person = prompt("Enter your name:", "Slim Shady");
+
+            if (person == null || person == "") {
+                text1 = "User cancelled the prompt.";
+            } else {
+                text1 = "Hello " + person + "! Kaisan Ba?";
+            }
+
+            document.getElementById("result1").innerHTML = text1;
+
+        }
+
+    </script>
+</body>
+</html>

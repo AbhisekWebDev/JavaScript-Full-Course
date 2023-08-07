@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        A common use of JSON is to exchange data to/from a web server. <br>
+        When sending data to a web server, the data has to be a string. <br>
+        Convert a JavaScript object into a string with JSON.stringify(). 
+    </p>
+    <p>Stringify an object</p>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <br>
+    <p>Stringify an array </p>
+    <p id="result2"></p>
+    <br>
+    <p>Using localStorage to store object as a string and then retrieving it as object</p>
+    <p id="result3"></p>
+
+    <script>
+
+        const obj = {name : "Abhi", age : 26, city : "Kolkata"};
+        const stringify = JSON.stringify(obj);
+        
+        console.log(obj);
+        console.log(stringify);
+
+        document.getElementById("result").innerHTML = "An object : " + obj;
+        document.getElementById("result1").innerHTML = "Converted an object to a string using JSON.stringify() : " + stringify;
+
+
+    // Stringify a JavaScript Array
+        // It is also possible to stringify JavaScript arrays:
+
+        const array = ["Abhi", "Abhisek", "Abhishek", "Kumar"];
+        const myJSON = JSON.stringify(array);
+
+        document.getElementById("result2").innerHTML = "Converted an array to a string using JSON.stringify() : " + myJSON;
+
+
+    // Storing Data
+        // When storing data, the data has to be a certain format, and regardless of where you choose to store it, text is always one of the legal formats.
+        // JSON makes it possible to store JavaScript objects as text.
+
+        // Storing data:
+        const storeObject = {name: "Abhisek", age: 26, city: "Kolkata"};
+        const string = JSON.stringify(storeObject);
+        localStorage.setItem("testJSON", string);
+
+        // Retrieving data:
+        let text = localStorage.getItem("testJSON");
+        let retrieveObject = JSON.parse(text);
+        document.getElementById("result3").innerHTML = retrieveObject.name + ", " + retrieveObject.age;
+
+
+    // Exceptions
+
+        // Stringify Dates
+        // In JSON, date objects are not allowed. The JSON.stringify() function will convert any dates into strings.
+
+        // Example
+        // const obj = {name: "John", today: new Date(), city : "New York"};
+        // const myJSON = JSON.stringify(obj);
+
+
+        // Stringify Functions
+        // In JSON, functions are not allowed as object values.
+
+        // The JSON.stringify() function will remove any functions from a JavaScript object, both the key and the value:
+
+        // Example
+        // const obj = {name: "John", age: function () {return 30;}, city: "New York"};
+        // const myJSON = JSON.stringify(obj);
+       
+    </script>
+</body>
+</html>

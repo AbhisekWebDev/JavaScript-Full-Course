@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>JSON object and array literals</p>
+    <br>
+    <p>Looping through an object</p>
+    <p id="result"></p>
+    <br>
+    <p>Looping through an array</p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+
+    <script>
+
+    // Object
+
+    // JSON object literals are surrounded by curly braces {}.
+
+        // JSON object literals contains key/value pairs.
+
+        // Keys and values are separated by a colon.
+
+        // Keys must be strings, and values must be a valid JSON data type:
+
+        // string
+        // number
+        // object
+        // array
+        // boolean
+        // null
+        // Each key/value pair is separated by a comma.
+
+
+        // Loop throughh an object
+
+        const myJSON = '{"name":"John", "age":30, "car":null}';
+        const myObj = JSON.parse(myJSON);
+
+        let text = "";
+
+            // In a for-in loop, use the bracket notation to access the property values:
+
+        for (const x in myObj) {
+            text += myObj[x] + ", ";
+        }
+
+        document.getElementById("result").innerHTML = text;
+
+
+    // Array
+
+    // Arrays in JSON are almost the same as arrays in JavaScript.
+
+        // In JSON, array values must be of type string, number, object, array, boolean or null.
+
+        // In JavaScript, array values can be all of the above, plus any other valid JavaScript expression, including functions, dates, and undefined.
+
+
+        // Arrays in Objects
+            // Objects can contain arrays:
+
+            // Example
+            //  {
+            //      "name":"John",
+            //      "age":30,
+            //      "cars":["Ford", "BMW", "Fiat"]
+            //  }
+
+
+        // Loop throughh an object
+            
+        const myCars = `{
+            "name":"Abhi", 
+            "age":26, 
+            "cars":["Ford", "BMW", "Fiat"]
+        }`;
+
+        document.getElementById("result1").innerHTML = myCars;
+
+        const object = JSON.parse(myCars);
+
+        let txt = "";
+
+        for (let i = 0; i < object.cars.length; i++) {
+            txt += object.cars[i] + ", ";
+        }
+
+        document.getElementById("result2").innerHTML = txt;
+
+    </script>
+</body>
+</html>

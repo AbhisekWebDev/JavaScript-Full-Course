@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <hr>
+    <button onclick="myFun1()">Sort Alphabetically</button>
+    <button onclick="myFun2()">Sort Numerically</button>
+    <p id="result5"></p>
+    <hr>
+    <button onclick="myFun()">Sort Randomly</button>
+    <p id="result6"></p>
+    <button onclick="myFunLoop()">Sort Randomly</button>
+    <p id="result7"></p>
+    <hr>
+    <p id="result8"></p>
+    <p id="result9"></p>
+    <hr>
+    <p id="result10"></p>
+    <p id="result11"></p>
+    
+
+    <script>
+
+        const fruits = ['Banana','Orange','Apple','Mango'];
+        document.getElementById("result").innerHTML = fruits.sort();
+        document.getElementById("result1").innerHTML = fruits.reverse();
+
+
+    //neumaric sort
+        const num = [40, 100, 1, 5, 25, 10];
+
+    //this sort is wrong because it finds the first digit and sorts accordingly and the output will be 1,10,100,25,40,5 which is not correct
+        document.getElementById("result2").innerHTML = num.sort();
+
+    //so to fix this we need to make a compare function 
+        num.sort(
+            function(a,b){
+                return a - b; //ye ascending k lye
+            }
+        );
+        document.getElementById("result3").innerHTML = num;
+
+    //ye descending k lye compare function
+        num.sort(
+            function(a,b){
+                return b - a; //ye descending k lye
+            }
+        );
+        document.getElementById("result4").innerHTML = num;
+
+
+
+    //playing with numbers in function and sorting it alphabeticaaly and numerically
+        const num1 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("result5").innerHTML = num1;
+
+        function myFun1(){
+            num1.sort();
+            document.getElementById("result5").innerHTML = num1;
+        }
+
+        function myFun2(){
+            num1.sort(
+                function(a,b){
+                    return a - b;
+                }
+            );
+            document.getElementById("result5").innerHTML = num1;
+        }
+
+
+
+    //random sorting of array
+        const num2 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("result6").innerHTML = num2;  
+
+        function myFun() {
+            num2.sort(
+                function(){
+                    return 0.5 - Math.random()
+                }
+            );
+            document.getElementById("result6").innerHTML = num2;
+        }
+
+
+    //the accurate and better option fisher yates method
+        const num3 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("result6").innerHTML = num3;
+        function myFunLoop() {
+            for(let i = num3.length-1 ; i > 0 ; i--){
+                let j = Math.floor(Math.random() * (i - 1));
+                let k = num3[i];
+                num3[i] = num3[j];
+                num3[j] = k;
+            }
+            document.getElementById("result7").innerHTML = num3;
+        }
+
+
+    //math max()
+        const num4 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("result8").innerHTML = num4;
+        document.getElementById("result9").innerHTML = "The highest number is (using Math.max() function) : " + myMax(num4);
+        function myMax(arr){
+            return Math.max.apply(null, arr);
+        }
+        
+    //highest value using function and loop
+        const num5 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("result10").innerHTML = num5;
+        document.getElementById("result11").innerHTML = "The highest number is (using function & loop) : " + myMax1(num5);
+        function myMax1(arr1){
+            let length = arr1.length;
+            let max = -Infinity;
+            while(length--){
+                if(arr1[length] > max){
+                    max = arr1[length];
+                }
+            }
+            return max;
+        }
+
+    </script>
+</body>
+</html>

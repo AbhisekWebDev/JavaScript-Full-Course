@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>AND operator : 5 & 1 = </p>
+    <p id="result"></p>
+    <br>
+    <p>OR operator : 5 | 1 = </p>
+    <p id="result1"></p>
+    <br>
+    <p>XOR operator : 5 ^ 1 = </p>
+    <p id="result2"></p>
+    <br>
+    <p>NOT operator : ~5 = </p>
+    <p id="result3"></p>
+    <br>
+    <p>Left Shift operator : 5 << 1 = </p>
+    <p id="result4"></p>
+    <br>
+    <p>Right Shift operator : 5 >> 1 = </p>
+    <p id="result5"></p>
+    <br>
+    <img src="binary-system-table-vector-22642167.jpg" alt="" width="800" height="600">
+    <p>Converting decimal to binary = </p>
+    <p id="result6"></p>
+    <br>
+    <p>Converting to binary decimal = </p>
+    <p id="result7"></p>
+
+    <script>
+    // AND
+    // Operation	Result
+    // 0 & 0	    0
+    // 0 & 1	    0
+    // 1 & 0	    0
+    // 1 & 1	    1
+        document.getElementById("result").innerHTML = 5 & 1;
+
+    // OR
+    // Operation	Result
+    // 0 | 0	    0
+    // 0 | 1	    1 
+    // 1 | 0	    1
+    // 1 | 1	    1
+        document.getElementById("result1").innerHTML = 5 | 1;
+
+    // XOR
+    // Operation	Result
+    // 0 ^ 0	    0
+    // 0 ^ 1	    1 
+    // 1 ^ 0	    1
+    // 1 ^ 1	    0 
+        document.getElementById("result2").innerHTML = 5 ^ 1;
+
+    // NOT
+        document.getElementById("result3").innerHTML = ~ 5;
+
+    // Left Shift
+        document.getElementById("result4").innerHTML = 5 << 1;
+
+    // Right Shift
+        document.getElementById("result5").innerHTML = 5 >> 1;
+
+
+    // Converting decimal to binary
+        document.getElementById("result6").innerHTML = dec2bin(18);
+        function dec2bin(dec){
+            return (dec >>> 0).toString(2);
+        }
+
+    // Converting binary to decimal
+        document.getElementById("result7").innerHTML = bin2dec(101010);
+        function bin2dec(bin){
+            return parseInt(bin, 2).toString(12);
+        }
+
+    </script>
+</body>
+</html>

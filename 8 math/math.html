@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="font-size: 1.5rem;">JavaScript provides 8 mathematical constants that can be accessed as Math properties</p>
+    <p id="result"></p>
+    <br>
+    <p style="font-size: 1.5rem;">There are 4 common methods to round a number to an integer</p>
+    <p id="result1"></p>
+
+    <script>
+        
+    // Unlike other objects, the Math object has no constructor.
+    // The Math object is static.
+    // All methods and properties can be used without creating a Math object first
+
+
+        // JavaScript provides 8 mathematical constants that can be accessed as Math properties
+
+
+
+        document.getElementById("result").innerHTML = 
+        "<p><b>Math.E :</b> " + Math.E + "</p>" // returns Euler's number
+        +
+        "<p><b>Math.PI :</b> " + Math.PI + "</p>" // returns PI
+        +
+        "<p><b>Math.SQRT2 :</b> " + Math.SQRT2 + "</p>" // returns the square root of 2
+        +
+        "<p><b>Math.SQRT1_2 :</b> " + Math.SQRT1_2 + "</p>" // returns the square root of 1/2
+        +
+        "<p><b>Math.LN2 :</b> " + Math.LN2 + "</p>" // returns the natural logarithm of 2
+        +
+        "<p><b>Math.LN10 :</b> " + Math.LN10 + "</p>" // returns the natural logarithm of 10
+        +
+        "<p><b>Math.LOG2E :</b> " + Math.LOG2E + "</p>" // returns base 2 logarithm of E
+        +
+        "<p><b>Math.Log10E :</b> " + Math.LOG10E + "</p>"; // returns base 10 logarithm of E
+
+
+
+    // There are 4 common methods to round a number to an integer
+
+        document.getElementById("result1").innerHTML = 
+        "<p><b>Math.round(4.6) :</b> " + Math.round(4.6) + "</p>" // returns the nearest integer
+        +
+        "<p><b>Math.ceil(4.2) :</b> " + Math.ceil(4.2) + "</p>" // returns the value of x rounded up to its nearest integer
+        +
+        "<p><b>Math.floor(4.7) :</b> " + Math.floor(4.7) + "</p>" // returns the value of x rounded down to its nearest integer
+        +
+        "<p><b>Math.trunc(4.9) :</b> " + Math.trunc(4.9) + "</p> <br>" // returns the integer part of x
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        +
+        "<p><b>Math.sign(4), Math.sign(-4), Math.sign(0) :</b> " + Math.sign(4) + ", " + Math.sign(-4) + ", " + Math.sign(0) + "</p>" // returns if x is negative, null or positive in 1 (for +), -1 (for +) and 0 (for null)
+        +
+        "<p><b>Math.pow(x, y) :</b> " + Math.pow(8, 2) + "</p>" // returns the value of x to the power of y
+        +
+        "<p><b>Math.sqrt(64) :</b> " + Math.sqrt(64) + "</p>" // returns the square root of x
+        +
+        "<p><b>Math.abs(-4.7) :</b> " + Math.abs(-4.7) + "</p>" // returns the absolute (positive) value of x
+        +
+        "<p><b>Math.sin(90 * Math.PI / 180) - The sine value of 90 degrees is :</b> " + Math.sin(90 * Math.PI / 180) + "</p>" // Math.sin(x) returns the sine (a value between -1 and 1) of the angle x (given in radians). If you want to use degrees instead of radians, you have to convert degrees to radians : Angle in radians = Angle in degrees x PI / 180
+        +
+        "<p><b>Math.cos(0 * Math.PI / 180) - The cosine value of 0 degrees is :</b> " + Math.cos(0 * Math.PI / 180) + "</p>" // Math.cos(x) returns the cosine (a value between -1 and 1) of the angle x (given in radians). If you want to use degrees instead of radians, you have to convert degrees to radians : Angle in radians = Angle in degrees x PI / 180
+        +
+        "<p><b>Math.min() :</b> " + Math.min(0, 150, 30, 20, -8, -200) + "</p>" // returns the lowest value
+        +
+        "<p><b>Math.max() :</b> " + Math.max(0, 150, 30, 20, -8, -200) + "</p>" // returns the highest value
+        +
+        "<p><b>Math.random() :</b> " + Math.random() + "</p>"; // returns a random number between 0 (inclusive), and 1 (exclusive)
+
+    </script>
+</body>
+</html>

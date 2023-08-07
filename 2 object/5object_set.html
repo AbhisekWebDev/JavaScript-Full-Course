@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Create a Set from an Array:</p>
+    <p id="result"></p>
+    <br>
+    <p>Create a Set and add literal values:</p>
+    <p id="result1"></p>
+    <br>
+    <p>If you add equal elements, only the first will be saved:</p>
+    <p>
+        // Create a Set <br>
+        const letters2 = new Set(); <br>
+
+        // Add values to the Set <br>
+        letters2.add("a"); <br>
+        letters2.add("b"); <br>
+        letters2.add("c"); <br>
+        letters2.add("c"); <br>
+        letters2.add("c"); <br>
+        letters2.add("c"); <br>
+        letters2.add("c"); <br>
+        letters2.add("c"); <br>
+
+        // Display set.size <br>
+        document.getElementById("result2").innerHTML = letters2.size; <br>
+    </p>
+    <p id="result2"></p>
+    <br>
+    <p>forEach() calls a function for each element:</p>
+    <p id="result3"></p>
+    <br>
+    <p>Set.values() returns a Set Iterator:</p>
+    <p id="result4"></p>
+    <p>Now we can use the Iterator object to access the elements:</p>
+    <p id="result5"></p>
+    <br>
+    <p>
+        The keys() Method
+        A Set has no keys.
+        keys() returns the same as values().
+        This makes Sets compatible with Maps.
+    </p>
+    <p>Set.keys() returns a Set Iterator:</p>
+    <p id="result6"></p>
+    <br>
+    <p>
+        he keys() Method
+        A Set has no keys.
+        keys() returns the same as values().
+        This makes Sets compatible with Maps.
+    </p>
+    <p>entries() Returns an Iterator with [value,value] pairs from a Set:</p>
+    <p id="result7"></p>
+
+    <script>
+
+    // A JavaScript Set is a collection of unique values.
+    // Each value can only occur once in a Set.
+    // A Set can hold any value of any data type.
+
+
+        // Create a Set
+        const letters = new Set(
+            ["a","b","c"]
+        );
+        // Display set.size
+        document.getElementById("result").innerHTML = letters.size;
+
+
+    // Create a Set and add literal values:
+
+        // Create a Set
+        const letters1 = new Set();
+
+        // Add Values to the Set
+        letters1.add("a");
+        letters1.add("b");
+        letters1.add("c");
+
+        // Display set.size
+        document.getElementById("result1").innerHTML = letters1.size;
+
+
+    // If you add equal elements, only the first will be saved:
+
+        // Create a Set
+        const letters2 = new Set();
+
+        // Add values to the Set
+        letters2.add("a");
+        letters2.add("b");
+        letters2.add("c");
+        letters2.add("c");
+        letters2.add("c");
+        letters2.add("c");
+        letters2.add("c");
+        letters2.add("c");
+
+        // Display set.size
+        document.getElementById("result2").innerHTML = letters2.size;
+
+
+        // Create a Set
+        const letters3 = new Set(["a","b","c"]);
+
+        // List all Elements
+        let text = "";
+        letters3.forEach (
+            function(value) {
+                text += value + "<br>";
+            }
+        )
+        document.getElementById("result3").innerHTML = text;
+
+    
+    // Set.values() returns a Set Iterator:
+
+        // Create a Set
+        const letters4 = new Set(["a","b","c"]);
+
+        // Display set.size
+        document.getElementById("result4").innerHTML = letters4.values();
+
+        // Now we can use the Iterator object to access the elements:
+
+        let text1 = "";
+        for (const x of letters4.values()) {
+            text1 += x + "<br>";
+        }
+        document.getElementById("result5").innerHTML = text1;
+
+
+    // The keys() Method
+    // A Set has no keys.
+    // keys() returns the same as values().
+    // This makes Sets compatible with Maps.
+
+        // Set.keys() returns a Set Iterator:
+
+        // Create a Set
+        const letters5 = new Set(
+            ["a","b","c"]
+        );
+
+        // Display set.size
+        document.getElementById("result6").innerHTML = letters5.keys();
+
+
+    // The entries() Method
+    // A Set has no keys.
+    // entries() returns [value,value] pairs instead of [key,value] pairs.
+    // This makes Sets compatible with Maps:
+
+        // entries() Returns an Iterator with [value,value] pairs from a Set:
+
+        // Create a Set
+        const letters6 = new Set(["a","b","c"]);
+
+        // List all entries
+        const iterator = letters6.entries();
+        let text2 = "";
+        for (const entry of iterator) {
+        text2 += entry + "<br>";
+        }
+
+        document.getElementById("result7").innerHTML = text2;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result2.1"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+
+    <script>
+
+        const date = new Date();
+        date.setFullYear(2023);
+        document.getElementById("result").innerHTML = "setFullYear method : " + date;
+
+        const date1 = new Date();
+        date1.setMonth(6);
+        document.getElementById("result1").innerHTML = "setMonth method : " + date1;
+
+        const date2 = new Date();
+        date2.setDate(12);
+        document.getElementById("result2").innerHTML = "setDate method : " + date2;
+    //The setDate() method can be used to add days to a date    
+        date2.setDate(date2.getDate() + 20);
+        document.getElementById("result2.1").innerHTML = "setDate method can be used to add days to a date : " + date2;
+
+        const date3 = new Date();
+        date3.getDay(4);
+        document.getElementById("result3").innerHTML = "setDay method : " + date3;
+
+        const date4 = new Date();
+        date4.setHours(12);
+        document.getElementById("result4").innerHTML = "setHours method : " + date4;
+
+        const date5 = new Date();
+        date5.setMinutes(55);
+        document.getElementById("result5").innerHTML = "setMinutes method : " + date5;
+
+        const date6 = new Date();
+        date6.setSeconds(25);
+        document.getElementById("result6").innerHTML = "setSeconds method : " + date6;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Set is a Collection of unique values : -</p>
+    <br>
+    <p>Create a Set from an Array :</p>
+    <p id="result"></p>
+    <br>
+    <p>Add values to a Set :</p>
+    <p id="result1"></p>
+    <br>
+    <p>Add variables to a Set :</p>
+    <p id="result2"></p>
+    <br>
+    <p>If we add equal elements, only the first will be saved :</p>
+    <p id="result3"></p>
+    <br>
+    <p>forEach() calls a function for each element :</p>
+    <p id="result4"></p>
+    <br>
+    <p>Iterating Set values using for..of & values() method :</p>
+    <p id="result5"></p>
+
+    <script>
+
+    // Create a Set - using set() method
+
+        const letters = new Set(["a","b","c"]);
+
+        document.getElementById("result").innerHTML = letters.size;
+
+
+    // Create a Set - using set() method and adding values using add() method
+
+        const letters1 = new Set();
+
+        // Add Values to the Set
+        letters1.add("a");
+        letters1.add("b");
+        letters1.add("c");
+        letters1.add("d");
+        letters1.add("e");
+
+        document.getElementById("result1").innerHTML = letters1.size;
+
+
+    //Create a set - using set() method and adding vriables using add() method
+
+        const letters2 = new Set();
+
+        // Create Variables
+        const a = "a";
+        const b = "b";
+        const c = "c";
+        const d = "d";
+
+        // Add the Variables to the Set
+        letters2.add(a);
+        letters2.add(b);
+        letters2.add(c);
+        letters2.add(d);
+
+        document.getElementById("result2").innerHTML = letters2.size;
+
+
+    //If we add equal elements, only the first will be saved
+
+        const letters3 = new Set();
+
+        // Add values to the Set
+        letters3.add("a");
+        letters3.add("b");
+        letters3.add("c");
+        letters3.add("c");
+        letters3.add("c");
+        letters3.add("c");
+        letters3.add("c");
+        letters3.add("c");
+
+        document.getElementById("result3").innerHTML = letters3.size;
+
+
+    //The forEach() method invokes (calls) a function for each Set element
+
+        const letters4 = new Set(
+            [a,b,c]
+        );
+
+        let text = "";
+
+        letters4.forEach(
+            function(values) {
+                text += values + "<br>";
+            }
+        );
+
+        document.getElementById("result4").innerHTML = text;
+
+
+    //The values() method returns a new iterator object containing all the values in a Set
+        const letters5 = new Set(
+            [
+                'A','b','h','i','s','e','k'
+            ]
+        );
+
+        let text1 = "";
+
+        for(const x of letters5.values()){
+            text1 += x;
+        }
+
+        document.getElementById("result5").innerHTML = text1;
+
+    </script>
+</body>
+</html>

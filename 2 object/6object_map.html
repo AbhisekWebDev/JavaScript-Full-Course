@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Creating a Map from an Array:</p>
+    <p id="result"></p>
+    <br>
+    <p>You can add elements to a Map with the set() method:</p>
+    <p id="result1"></p>
+    <br>
+    <p>The set() method can also be used to change existing Map values:</p>
+    <p id="result2"></p>
+    <br>
+    <p>Using size() method</p>
+    <p id="result3"></p>
+    <br>
+    <p>Using delete() method</p>
+    <p id="result4"></p>
+    <br>
+    <p>The clear() method removes all the elements from a Map</p>
+    <p id="result5"></p>
+    <br>
+    <p>The has() method returns true if a key exists in a Map:</p>
+    <p id="result6"></p>
+    <br>
+    <br>
+    <p>Using forEach() method</p>
+    <p>The forEach() method invokes a callback for each key/value pair in a Map:</p>
+    <p id="result7"></p>
+    <br>
+    <p>The entries() method returns an iterator object with the [key,values] in a Map:</p>
+    <p id="result8"></p>
+    <br>
+    <p>The keys() method returns an iterator object with the keys in a Map:</p>
+    <p id="result9"></p>
+    <br>
+    <p>The values() method returns an iterator object with the values in a Map:</p>
+    <p id="result10"></p>
+    <br>
+    <p>We can use the values() method to sum the values in a Map:</p>
+    <p id="result11"></p>
+    <br>
+
+    <script>
+
+    // A Map holds key-value pairs where the keys can be any datatype.
+    // A Map remembers the original insertion order of the keys.
+    // A Map has a property that represents the size of the map.
+
+
+
+    // The get() method gets the value of a key in a Map:
+
+
+
+    // Using new Map()
+
+        // Create a Map
+        const fruits = new Map(
+            [
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]
+        );
+        document.getElementById("result").innerHTML = fruits.get("apples");
+
+
+    // Using Map.set()
+
+        // Create a Map
+        const fruits1 = new Map();
+
+        // Set Map Values
+        fruits1.set("apples", 500);
+        fruits1.set("bananas", 300);
+        fruits1.set("oranges", 200);
+
+        document.getElementById("result1").innerHTML = fruits1.get("apples");
+
+
+    // The set() method can also be used to change existing Map values:
+
+        fruits1.set("bananas", 200);
+
+        document.getElementById("result2").innerHTML = fruits1.get("bananas");
+
+
+    // Using size() method
+
+        document.getElementById("result3").innerHTML = fruits1.size;
+
+
+    // Using delete() method
+
+        // Delete an Element
+        fruits1.delete("oranges");
+
+        document.getElementById("result4").innerHTML = fruits1.size;
+
+
+    // The clear() method removes all the elements from a Map
+
+        // Clear the Map
+        fruits1.clear();
+
+        document.getElementById("result5").innerHTML = fruits1.size;
+
+
+    // The has() method returns true if a key exists in a Map:
+
+        const fruits2 = new Map(
+            [
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]
+        );
+        document.getElementById("result6").innerHTML = fruits2.has("apples");
+
+
+    // Using forEach() method 
+
+        // The forEach() method invokes a callback for each key/value pair in a Map:
+        let text3 = "";
+
+        fruits2.forEach(
+            function(value, key){
+                text3 += key + " = " + value + "<br>";
+            }
+        )
+        document.getElementById("result7").innerHTML = text3;
+
+
+    // The entries() method returns an iterator object with the [key,values] in a Map:
+
+        let text4 = "";
+        for (const x of fruits2.entries()) {
+            text4 += x + "<br>";
+        }
+        document.getElementById("result8").innerHTML = text4; 
+
+        
+    // The keys() method returns an iterator object with the keys in a Map: 
+
+        let text5 = "";
+        for (const x of fruits2.keys()) {
+            text5 += x + "<br>";
+        }
+        document.getElementById("result9").innerHTML = text5;
+
+
+    //The values() method returns an iterator object with the values in a Map:
+
+        let text6 = "";
+        for (const x of fruits2.values()) {
+            text6 += x + "<br>";
+        }
+        document.getElementById("result10").innerHTML = text6;
+        
+
+    // We can use the values() method to sum the values in a Map:
+
+        let total = 0;
+        for (const x of fruits2.values()) {
+            total += x;
+        }
+        document.getElementById("result11").innerHTML = total;
+
+    </script>
+</body>
+</html>

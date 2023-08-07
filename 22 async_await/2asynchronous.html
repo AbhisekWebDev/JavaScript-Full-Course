@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        When using the JavaScript function setTimeout(),
+        we can specify a callback function to be executed on time-out:
+    </p>
+    <p id="result"></p>
+    <br>
+    <p>
+        Instead of passing the name of a function as an argument to another function,
+        we can always pass a whole function instead:
+    </p>
+    <p id="result1"></p>
+    <br>
+    <p>
+        Waiting for Intervals: <br>
+        When using the JavaScript function setInterval(), 
+        we can specify a callback function to be executed for each interval:
+    </p>
+    <p id="result2"></p>
+
+    <script>
+
+    // In the real world, callbacks are most often used with asynchronous functions.
+
+    // A typical example is JavaScript setTimeout().
+
+        // Waiting for a Timeout
+        // When using the JavaScript function setTimeout(), 
+        // we can specify a callback function to be executed on time-out:
+
+
+        // Note :-
+            // When you pass a function as an argument, remember not to use parenthesis.
+            // Right: setTimeout(myFunction, 3000);
+            // Wrong: setTimeout(myFunction(), 3000);
+
+        setTimeout(myFun, 2000);
+
+        function myFun() {
+            document.getElementById("result").innerHTML = "Hey!";
+        }
+
+        // In the example above, myFun is used as a callback.
+        // myFun is passed to setTimeout() as an argument.
+        // 2000 is the number of milliseconds before time-out, so myFun() will be called after 3 seconds.
+
+
+        // Instead of passing the name of a function as an argument to another function,
+        // we can always pass a whole function instead:-
+
+        setTimeout(
+            function myFunction() {
+                document.getElementById("result1").innerHTML = "Hola!";
+            }, 
+        3000);
+
+
+
+    // Waiting for Intervals:
+        // When using the JavaScript function setInterval(),
+        // we can specify a callback function to be executed for each interval:
+
+        setInterval(timer, 1000);
+
+        function timer() {
+
+            let date = new Date();
+
+            document.getElementById("result2").innerHTML = "Time = " +
+            date.getHours() + ":" +
+            date.getMinutes() + ":" +
+            date.getSeconds();
+        }
+
+        // In the example above, timer() is used as a callback.
+        // timer function is passed to setInterval() as an argument.
+
+
+
+    // Callback Alternatives : -
+
+        // With asynchronous programming, JavaScript programs can start long-running tasks, and continue running other tasks in paralell.
+        // But, asynchronus programmes are difficult to write and difficult to debug.
+        // Because of this, most modern asynchronous JavaScript methods don't use callbacks. 
+
+    // Instead, in JavaScript, asynchronous programming is solved using Promises.
+
+    </script>
+</body>
+</html>

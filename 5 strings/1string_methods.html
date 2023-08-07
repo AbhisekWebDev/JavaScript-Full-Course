@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+
+    <script>
+
+    // there are 3 methods for extracting a part of a string : -
+        
+        let text = "Apple, Banana, Kiwi";
+
+
+    // 1st method slice
+        let part = text.slice(7, 13);
+    // 13 - 1 hoga -> n - 1
+        document.getElementById('result').innerHTML = part;
+
+
+    // if we leave the second parameter, it will print athe rest elements aswell
+        let part1 = text.slice(7);
+        document.getElementById('result1').innerHTML = part1;
+
+
+    // 2nd method substring
+        let part2 = text.substring(7, 13);
+        document.getElementById('result2').innerHTML = part2;
+
+
+    // substring start and end value less than 0 is treated as 0
+        let part3 = text.substring(12, -1);
+        document.getElementById('result3').innerHTML = part3;
+
+
+    // 3rd method substr
+        let part4 = text.substr(7, 5);
+    // substr method ka second parameter specifies the length of the extracted part
+        document.getElementById('result4').innerHTML = part4;
+
+
+        let length = text.length;
+        document.getElementById('result5').innerHTML = length;
+
+
+
+    // trim() method removes whitespace from both sides of a string
+        let text1 = "     Hello World!     ";
+        let text2 = text1.trim();
+        document.getElementById("result6").innerHTML = text1 + " <br> Length text1 = " + text1.length + " <br> Length text2 = " + text2.length;
+
+    // trimStart() method removes whitespace from starting end of a string
+        let text3 = text1.trimStart();
+        document.getElementById("result7").innerHTML = text1 + " <br> Length text1 = " + text1.length + "<br>Length text3 = " + text3.length;
+
+    </script>
+</body>
+</html>

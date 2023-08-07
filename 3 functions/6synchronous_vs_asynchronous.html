@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Synchronous JS VS Asynchronous JS</h3>
+    <p>
+        Asynchronous is a non-blocking architecture, so the execution of one task isn't dependent on another. Tasks can run simultaneously. <br>
+        Synchronous is a blocking architecture, so the execution of each operation is dependent on the completion of the one before it
+    </p>
+
+    <script>
+
+    // Asynchronous is a non-blocking architecture, so the execution of one task isn't dependent on another. Tasks can run simultaneously. 
+    // Synchronous is a blocking architecture, so the execution of each operation is dependent on the completion of the one before it
+
+        // synchronous
+
+        const fun2 = () => {
+            console.log('function 2 is called');
+            document.write('function 2 is called <br>');
+        }
+
+        const fun1 = () => {
+            console.log('function 1 is called');
+            document.write('function 1 is called <br>');
+            fun2();
+            console.log('function 1 is called again');
+            document.write('function 1 is called again <br> <br>')
+        }
+
+        fun1();
+
+
+        // asynchronous
+
+        const funB = () => {
+            setTimeout(
+                () => {
+                    console.log('function 2 is called');
+                    document.write('function 2 is called <br>');
+                },
+                2000
+            );
+            
+        }
+
+        const funA = () => {
+            console.log('function 1 is called');
+            document.write('function 1 is called <br>');
+            funB();
+            console.log('function 1 is called again');
+            document.write('function 1 is called again <br>')
+        }
+
+        funA();
+
+    </script>
+</body>
+</html>

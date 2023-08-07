@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>async</p>
+    <p id="result"></p>
+    <br>
+    <p>JS async/await</p>
+    <p id="result1"></p>
+    <br>
+    <p>JS async/await & setTimeout</p>
+    <p id="result2"></p>
+    <br>
+    <p>
+        async/await & promise - getFile  <br>
+        Isme ek file h mycar.html naam ka aur usko async/await & promise ki madad se call kiya h
+    </p>
+    <p id="result3"></p>
+
+    <script>
+
+    // "async and await make promises easier to write"
+    // async makes a function return a Promise
+    // await makes a function wait for a Promise
+
+    // Async Syntax
+
+        //     The keyword async before a function makes the function return a promise:
+
+        //     async function myFunction() {
+        //         return "Hello";
+        //     }
+
+
+        function displayer(call) {
+            document.getElementById("result").innerHTML = call;
+        }
+
+        async function myFun() {
+            return "Hey!";
+        }
+
+        myFun().then(
+            function(value) {
+                displayer(value);
+            },
+
+            function(error) {
+                displayer(error);
+            }
+        );
+
+
+    // Await Syntax
+
+        //     The await keyword can only be used inside an async function.
+        //     The await keyword makes the function pause the execution and wait for a resolved promise before it continues:
+
+        //     let value = await promise;
+
+
+
+    // async/await
+
+        async function display() {
+
+            let promise = new Promise(
+
+                function(resolve, reject) {
+                    resolve("Hola !");
+                }
+            );
+
+            document.getElementById("result1").innerHTML = await promise;
+        }
+
+        display();
+
+        // The two arguments (resolve and reject) are pre-defined by JavaScript.
+        // We will not create them, but call one of them when the executor function is ready.
+        // Very often we will not need a reject function.
+
+
+
+    // waiting for timeout
+
+        async function myDisplay() {
+
+            let myPromise = new Promise(
+                function(resolve) {
+                    setTimeout(function() {
+                        resolve("Hi !!");
+                    }, 
+                3000);
+                }
+            );
+
+            document.getElementById("result2").innerHTML = await myPromise;
+        }
+
+        myDisplay();
+
+
+
+    // waitinf for a file
+        
+        async function getFile() {
+
+            let myPromise = new Promise(
+                
+                function(resolve) {
+
+                    let request = new XMLHttpRequest();
+
+                    request.open('GET', "mycar.html");
+                    
+                    request.onload = function() {
+
+                        if (request.status == 200) {
+                            resolve(request.response);
+                        } else {
+                            resolve("File not Found");
+                        }
+                    };
+
+                    request.send();
+                }
+            );
+
+            document.getElementById("result3").innerHTML = await myPromise;
+        }
+
+        getFile();
+
+    </script>
+</body>
+</html>

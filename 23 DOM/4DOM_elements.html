@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Example 1</h2>
+    <p>Finding HTML Elements by Tag Name.</p>
+    <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    <p id="result"></p>
+    <br>
+    <h2>Example 2</h2>
+    <div id="main">
+        <p>Finding HTML Elements by Tag Name</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    </div>
+    <p id="result1"></p>
+    <br>
+    <p>Finding HTML Elements by Class Name.</p>
+    <p class="intro">Hello Abhi!</p>
+    <p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+    <p id="result2"></p>
+    <br>
+    <p>Finding HTML Elements by Query Selector</p>
+    <p class="intros">Hello World!.</p>
+    <p class="intros">This example demonstrates the <b>querySelectorAll</b> method.</p>
+    <p id="result3"></p>
+    <br>
+
+    <h2>Example 1</h2>
+    <p>Finding HTML Elements Using <b>document.forms</b> and displaying the values.</p>
+
+    <form id="frm1" >
+        First name: <input type="text" name="fname" value="Donald"><br>
+        Last name: <input type="text" name="lname" value="Duck"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+
+    <p>These are the values of each element in the form:</p>
+    <p id="result4"></p>
+
+    <br>
+
+    <h2>Example 2</h2>
+    <p>Finding HTML Elements Using <b>document.forms</b> and displaying the output inserted by the user.</p>
+
+    <form id="frm2" onsubmit="displayFormValues(event)">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>These are the values of each element in the form:</p>
+    <p id="result5"></p>
+
+    <script>
+
+    // Finding HTML Elements
+    // Often, with JavaScript, we want to manipulate HTML elements.
+
+    // To do so, we have to find the elements first. There are several ways to do this:
+
+        // Finding HTML elements by id
+        // Finding HTML elements by tag name
+        // Finding HTML elements by class name
+        // Finding HTML elements by CSS selectors
+        // Finding HTML elements by HTML object collections
+
+
+
+    // Finding elements by tag name
+
+        // Example 1
+        const element = document.getElementsByTagName("p");
+        document.getElementById("result").innerHTML = "The text in the first para is : " + element[0].innerHTML + "<br> And the second para is : " + element[1].innerHTML;
+
+        // Example 2
+        const id = document.getElementById("main");
+        const pTag = id.getElementsByTagName("p");
+        document.getElementById("result1").innerHTML = "The first para (0th index) inside the div tag with class name - main is : " + pTag[0].innerHTML;
+
+
+    // Finding HTML Elements by Class Name
+        
+        const className = document.getElementsByClassName("intro");
+        document.getElementById("result2").innerHTML = 'The first para (index 0) with class = "intro" is : ' + className[0].innerHTML;
+
+
+    // Finding HTML Elements by CSS Selectors
+
+        // If you want to find all HTML elements that match a specified CSS selector (id, class names, types, attributes, values of attributes, etc), use the querySelectorAll() method.
+        // This example returns a list of all <p> elements with class="intros".
+
+            const querySelector = document.querySelectorAll("p.intros");
+            document.getElementById("result3").innerHTML = 'The first paragraph (index 0) with class = "intro" is : ' + querySelector[0].innerHTML;
+
+
+    // Finding HTML Elements by HTML Object Collections
+
+        // This example finds the form element with id="frm1", in the forms collection, and displays all element values:
+
+        // Example 1
+
+        const form = document.forms["frm1"];
+
+        let text = "";
+
+        for(let i = 0 ; i < form.length ; i++) {
+            text += form.elements[i].value + "<br>";
+        }
+
+        document.getElementById("result4").innerHTML = text;
+
+
+        // Example 2
+
+        function displayFormValues() {
+            event.preventDefault(); // Prevent form submission
+            const form1 = document.getElementById("frm2");
+            let text = "";
+
+            for (let i = 0; i < form1.elements.length; i++) {
+                text += form1.elements[i].value + "<br>";
+            }
+
+            document.getElementById("result5").innerHTML = text;
+        };
+
+    </script>
+</body>
+</html>

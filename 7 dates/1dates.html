@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result.1"></p>
+    <p id="result.2"></p>
+    <p id="result.3"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+    <p id="result7"></p>
+    <p id="result8"></p>
+    <p id="result9"></p>
+    <p id="result10"></p>
+    <p id="result11"></p>
+
+    <script>
+
+    //There are 9 ways to create a new date object : -
+
+        //Date objects are created with the new Date() constructor
+
+            // JavaScript Stores Dates as Milliseconds
+            // JavaScript stores dates as number of milliseconds since January 01, 1970.
+            // Zero time is January 01, 1970 00:00:00 UTC.
+            // One day (24 hours) is 86 400 000 milliseconds.
+            // Now the time is: 168913398XXXX milliseconds past January 01, 1970
+
+        const date = new Date();
+        document.getElementById("result").innerHTML = date;
+        document.getElementById("result.1").innerHTML = "To dateString method : " + date.toDateString();
+        document.getElementById("result.2").innerHTML = "To UTCString method : " + date.toUTCString();
+        document.getElementById("result.3").innerHTML = "To ISOString method : " + date.toISOString(); //The ISO format follows a strict standard in JavaScript.
+
+        const date1 = new Date("2023-07-12");
+        document.getElementById("result1").innerHTML = date1;
+        
+        const date2 = new Date("July 12, 2023 11:13:00") //date string
+        document.getElementById("result2").innerHTML = date2;
+
+        const date3 = new Date(2023, 6); //year,month ---> 6 = July kyuki index counting 0 se start hota h
+        document.getElementById("result3").innerHTML = date3;
+
+        const date4 = new Date(2023, 6, 12); //year,month,day
+        document.getElementById("result4").innerHTML = date4;
+
+        const date5 = new Date(2023, 6, 12, 10); //year,month,day,hours
+        document.getElementById("result5").innerHTML = date5;
+
+        const date6 = new Date(2023, 6, 12, 10, 15); //year,month,day,hours,minutes
+        document.getElementById("result6").innerHTML = date6;
+
+        const date7 = new Date(2023, 6, 12, 10, 15, 30); //year,month,day,hours,minutes,seconds
+        document.getElementById("result7").innerHTML = date7;
+
+        const date8 = new Date(2023, 6, 12, 10, 15, 30, 10000000); //year,month,day,hours,minutes,seconds,ms
+        document.getElementById("result8").innerHTML = date8;
+
+        const date9 = new Date(1000000000000000); //milliseconds | upperlimit of zeros it this
+        document.getElementById("result9").innerHTML = date9; 
+
+        const date10 = new Date("2023"); //ye sal ka start dikhayega | phla tarikh, pehla din(week ka any 7), pahla mahina
+        document.getElementById("result10").innerHTML = date10;
+
+        const milliseconds = Date.parse("July 12, 2023"); //ye Date.parse() method me 1 jan 1970 se july 12, 2023 tak kitna milliseconds hua h wo dikhayega
+        document.getElementById("result11").innerHTML = milliseconds; 
+
+    </script>
+</body>
+</html>

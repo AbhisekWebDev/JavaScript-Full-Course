@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="submit" onclick="displayTime()">Check Time</button>
+    <p id="result"></p>
+    <br>
+    <h1 id="id1">Abhisek Kumar</h1>
+    <button type="button" onclick="document.getElementById('id1').style.color = 'blue'">Click Me!</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="text" onkeydown="keyDown()" onkeyup="keyUp()">
+    <p id="result1"></p>
+
+    <script>
+
+        function displayTime() {
+            document.getElementById('result').innerHTML = Date();
+        }
+
+
+    // keyboard event
+
+    const keyDown = () => {
+        document.getElementById("result1").innerHTML = "Key Is Down";
+    }
+
+    const keyUp = () => {
+        document.getElementById("result1").innerHTML = "Key Is Up";
+    }
+        
+    </script>
+</body>
+</html>

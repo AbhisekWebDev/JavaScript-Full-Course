@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Creating a Map from an Array :</p>
+    <p id="result0"></p>
+    <br>
+    <p>The get() method gets the value of a key in a Map:</p>
+    <p id="result"></p>
+    <br>
+    <p>We can add elements to a Map with the set() method :</p>
+    <p id="result1"></p>
+    <br>
+    <p>The size property returns the number of elements in a Map :</p>
+    <p id="result2"></p>
+    <br>
+    <p>The delete() method removes a Map element :</p>
+    <p id="result3"></p>
+    <br>
+    <p>The has() method returns true if a key exists in a Map :</p>
+    <p id="result4"></p>
+    <br>
+    <p>The forEach() method calls a function for each key/value pair in a Map :</p>
+    <p id="result5"></p>
+    <br>
+    <p>The entries() method returns an iterator object with the [key, values] in a Map :</p>
+    <p id="result6"></p>
+
+    <script>
+
+    //A Map holds key-value pairs where the keys can be any datatype.
+    //A Map remembers the original insertion order of the keys.
+
+        //Create a Map
+
+        const fruits = new Map(
+            [
+              //[key, value]
+                ["apples", 500]
+                ,
+                ["bananas", 300]
+                ,
+                ["oranges", 200]
+            ]
+        );
+
+        let text = "";
+
+        for(const x of fruits.values()){
+            text += x + "<br>";
+        }
+
+        document.getElementById("result0").innerHTML = text;
+
+        //get() method returns the value of the key.
+        document.getElementById("result").innerHTML = "Only the value of the key will be shown using get() method : " + fruits.get("apples"); 
+
+
+    //Using Map.set()
+
+        const fruits1 = new Map();
+
+        // Set Map Values
+
+        fruits1.set("apples", 500);
+        fruits1.set("bananas", 300);
+        fruits1.set("oranges", 200);
+
+        document.getElementById("result1").innerHTML = "Only the value of the key will be shown : " + fruits1.get("apples");
+
+    //using size() method
+
+        document.getElementById("result2").innerHTML = "Using size() method : " + fruits1.size;
+
+    //using delete() method
+
+        fruits1.delete('bananas');
+        document.getElementById("result3").innerHTML = "The number of elements in a Map after using delete() method : " + fruits1.size;
+
+    //using has() method
+
+        document.getElementById("result4").innerHTML = "Using has() method : " + fruits1.has('bananas');
+
+    //using forEach() method in a map
+
+        let text1 = "";
+        fruits1.forEach (
+            function(value, key) { //this function takes 2 arguments - 1st = value & 2nd = key
+                text1 += key + ' = ' + value + "<br>"
+            }
+        );
+        document.getElementById("result5").innerHTML = text1;
+
+    //using entries() method
+
+        let text2 = "";
+        for (const x of fruits1.entries()) {
+            text2 += x + "<br>";
+        }
+        document.getElementById("result6").innerHTML = text2;
+
+
+    // Differences between JavaScript Objects and Maps :
+
+         //                                 Object                                              Map
+
+        //     Iterable -	                Not directly iterable	                            Directly iterable
+        //     Size -	                    Do not have a size property	                        Have a size property
+        //     Key Types -	                Keys must be Strings (or Symbols)	                Keys can be any datatype
+        //     Key Order -	                Keys are not well ordered	                        Keys are ordered by insertion
+        //     Defaults -	                Have default keys	                                Do not have default keys
+
+    </script>
+</body>
+</html>

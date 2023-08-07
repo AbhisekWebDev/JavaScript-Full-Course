@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Validation API</p>
+    <br>
+    <p>Enter a number and click OK : </p>
+    <input id="id1" type="number" min="100" max="300" required>
+    <button onclick="myFunction()">OK</button>
+    <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
+    <p id="result"></p>
+
+    <script>
+
+    // Constraint Validation DOM Methods
+        // Property	                Description
+        // checkValidity()	        Returns true if an input element contains valid data.
+        // setCustomValidity()	    Sets the validationMessage property of an input element.
+
+        // The checkValidity() Method
+
+        function myFunction() {
+            const inputObject = document.getElementById("id1");
+
+            if( !inputObject.checkValidity() ) {
+                document.getElementById("result").innerHTML = inputObject.validationMessage;
+            } else {
+                document.getElementById("result").innerHTML = "Input OK";
+            }
+        }
+
+
+    // Constraint Validation DOM Properties
+        // Property	                Description
+        // validity	                Contains boolean properties related to the validity of an input element.
+        // validationMessage	    Contains the message a browser will display when the validity is false.
+        // willValidate	            Indicates if an input element will be validated.
+
+    </script>
+</body>
+</html>

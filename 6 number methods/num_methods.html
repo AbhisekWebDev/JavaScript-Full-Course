@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    
+    <p id="result5"></p>
+    <script>
+
+    //toString() method converts a number to a string
+        let num = 123;
+        document.getElementById('result').innerHTML = 
+        num.toString() + "<br>" + 
+        (123).toString() + "<br>" + 
+        (100 + 23).toString();
+
+        
+    //The toExponential() method returns a string, with the number rounded and written using exponential notation
+        let x = 9.656;
+        document.getElementById('result1').innerHTML = 
+        x.toExponential(2) + "<br>" + 
+        x.toExponential(4) + "<br>" + 
+        x.toExponential(6) + "<br><br>" + 
+
+    //toFixed() method rounds a number to a given number of digits
+        x.toFixed(0) + "<br>" + 
+        x.toFixed(2) + "<br>" + 
+        x.toFixed(4) + "<br>" + 
+        x.toFixed(6);
+
+
+    //Number() method converts variables to numbers
+        document.getElementById("result2").innerHTML = 
+        Number(true) + "<br>" +
+        Number(false) + "<br>" +
+        Number("10") + "<br>" + 
+        Number("  10") + "<br>" +
+        Number("10  ") + "<br>" +
+        Number(" 10  ") + "<br>" +
+        Number("10.33") + "<br>" + 
+        Number("10,33") + "<br>" +
+        Number("10 33") + "<br>" +
+        Number("John");
+
+
+    //parseInt() converts strings to numbers
+        document.getElementById("result3").innerHTML = 
+        parseInt("-10") + "<br>" +
+        parseInt("-10.33") + "<br>" +
+        parseInt("10") + "<br>" +
+        parseInt("10.33") + "<br>" +
+        parseInt("10 6") + "<br>" +  
+        parseInt("10 years") + "<br>" +  
+        parseInt("years 10"); 
+
+
+    //The isInteger() method returns true if the argument is an integer or else it will return false
+        document.getElementById("result4").innerHTML =
+        Number.isInteger(10) + "<br>" + Number.isInteger(10.5);
+
+
+    //Number.parseInt() converts strings to whole numbers
+        document.getElementById("result5").innerHTML = 
+        Number.parseInt("-10") + "<br>" +
+        Number.parseInt("-10.33") + "<br>" +
+        Number.parseInt("10") + "<br>" +
+        Number.parseInt("10.33") + "<br>" +
+        Number.parseInt("10 6") + "<br>" +  
+        Number.parseInt("10 years") + "<br>" +  
+        Number.parseInt("years 10");
+
+    </script>
+</body>
+</html>

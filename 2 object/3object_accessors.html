@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Getters and setters allow us to get and set object properties via methods</p>
+    <br>
+    <p>Using get method</p>
+    <p id="result"></p>
+    <p>Same thing using function</p>
+    <p id="result1"></p>
+    <br>
+    <p>Using set method</p>
+    <p id="result2"></p>
+    <br>
+    <p>creating counters using object.defineProperty()</p>
+    <p id="result3"></p>
+
+    <script>
+
+    //Getters and setters allow you to define Object Accessors (Computed Properties).
+
+            // Why Using Getters and Setters?
+            // It gives simpler syntax
+            // It allows equal syntax for properties and methods
+            // It can secure better data quality
+            // It is useful for doing things behind-the-scenes
+
+
+    // Using get method
+        // Create an object Example 1:-
+        const person = {
+            firstName : "Abhisek",
+            lastName : "Kumar",
+            languages : [
+                "eng",
+                "hin",
+                "beng"
+            ],
+
+            get lang() {
+                return this.languages;
+            }
+        };
+        document.getElementById("result").innerHTML = person.lang;
+
+        // Same thing with a function
+        // Create an object Example 2:-
+        const person1 = {
+        firstName: "John",
+        lastName: "Doe",
+        languages : [
+                "eng",
+                "hin",
+                "beng"
+            ],
+
+            lang: function() {
+                return this.languages;
+            }
+        };
+        document.getElementById("result1").innerHTML = person1.lang();
+    // Example 1 access languages as a property: person.fullName.
+    // Example 2 access languages as a function: person.fullName().
+    // The second example provides a simpler syntax.
+
+
+    // Using set method
+        // Create an object:
+        const person2 = {
+            firstName : "Abhisek",
+            lastName : "Kumar",
+            language : "",
+
+            set langu(langu) {
+                this.language = langu;
+            }
+        };
+
+        person2.langu = "hin";
+        document.getElementById("result2").innerHTML = person2.language;
+
+
+    // The Object.defineProperty() method can also be used to add Getters and Setters:
+
+        // Define an object
+        const obj = {counter : 0};
+
+        // Define Setters and Getters
+        Object.defineProperty(obj, 
+            "reset", 
+                {
+                    get : function () {this.counter = 0;}
+                }
+        );
+
+        Object.defineProperty(obj, 
+            "increment", 
+                {
+                    get : function () {this.counter++;}
+                }
+        );
+
+        Object.defineProperty(obj, 
+            "decrement", 
+                {
+                    get : function () {this.counter--;}
+                }
+        );
+
+        Object.defineProperty(obj, 
+            "add", 
+                {
+                    set : function (value) {this.counter += value;}
+                }
+        );
+
+        Object.defineProperty(obj, 
+            "subtract", 
+                {
+                    set : function (value) {this.counter -= value;}
+                }
+        );
+
+        // Play with counter:
+        obj.reset;
+        obj.add = 9;
+        obj.subtract = 2;
+        obj.increment;
+        obj.decrement;
+
+        document.getElementById("result3").innerHTML = obj.counter;
+
+    </script>
+</body>
+</html>

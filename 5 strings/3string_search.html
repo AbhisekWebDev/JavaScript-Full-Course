@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+    <p id="result7"></p>
+    <p id="result8"></p>
+    <p id="result9"></p>
+    <p id="result10"></p>
+
+    <script>
+
+        let str = 'please locate where locate is';
+
+        document.getElementById('result').innerHTML = str.indexOf('locate');
+
+        document.getElementById('result1').innerHTML = str.lastIndexOf('locate');
+
+    //search() and indexof() does the same work
+        document.getElementById('result2').innerHTML = str.search('locate');
+
+
+    //isme maine template literals use kiya h aur isme js likhne k liye ${} ka use krna hota h
+
+        let str1 = `the rain in ${'Spain'.toUpperCase()} remains mainly in the plain`;
+
+
+    //str1.match(/ain/g) -> ye global match output krega
+        document.querySelector('#result3').innerHTML = str1.match(/ain/g);
+
+    //str1.match(/ain/gi) -> ye global match k sath case insensetive search kr k output krega
+        document.querySelector('#result4').innerHTML = str1.match(/ain/gi);
+
+    //str1.match(/ain/) -> ye sirf 1 'ain' khoj kr dega 
+        document.querySelector('#result5').innerHTML = str1.match(/ain/);
+
+
+        let text = "Hello World! Welcome to my house";
+
+    //Use the toLowerCase() method to convert the string to lowercase before performing the comparison
+    //This ensures that the comparison is case-insensitive.
+        document.querySelector('#result6').innerHTML = text.toLowerCase().includes('world', 12);
+        document.querySelector('#result7').innerHTML = text.toLowerCase().startsWith('world', 6);
+
+
+     //Template literals allow variables in strings
+        let firstName = "Abhisek";
+        let lastName = "Kumar";
+
+        let fullName = `Welcome ${firstName} ${lastName}!`;
+        document.getElementById('result8').innerHTML = fullName;
+
+
+    //Template literals allow expressions in strings
+        let price = 10;
+        let VAT = 0.25;
+
+        let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+        document.getElementById('result9').innerHTML = total;
+
+
+    //Template Literals allows html tags
+        let header = "Templates Literals";
+        let tags = ["template literals", "javascript", "es6"];
+
+        let html = `
+        <h2> ${header} </h2>
+        <ul>`;
+
+        for (const x of tags) {
+            html += `
+            <li >${x} </li>`;
+        }
+
+        html += `</ul>`;
+
+        document.getElementById('result10').innerHTML = html;
+
+    </script>
+</body>
+</html>

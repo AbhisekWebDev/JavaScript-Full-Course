@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+
+    <script>
+
+        let name = 'Abhi';
+        let char = name.charAt(1);
+        console.log(char);
+        document.getElementById('result').innerHTML = char;
+
+    // charCodeAt returns unicode value of a character
+        let charCode = name.charCodeAt(0);
+        console.log(charCode);
+        document.getElementById('result1').innerHTML = charCode;
+
+        let num = '1,2,3';
+        let numCode = num.charCodeAt(0);
+        console.log(numCode);
+        document.getElementById('result2').innerHTML = numCode;
+        
+
+    //converting string to array with split method
+        let text = "Hello";
+        const myArr = text.split("");
+
+        text = "";
+        for (let i = 0; i < myArr.length; i++) {
+            text += myArr[i] + "<br>"
+        }
+        console.log(text);
+        document.getElementById("result3").innerHTML = text;  
+
+        
+    //text split with comma
+        const myArr1 = text.split(",");
+
+        text = "";
+        for (let i = 0; i < myArr1.length; i++) {
+            text += myArr1[i]
+        }
+        console.log(text);
+        document.getElementById("result4").innerHTML = text; 
+
+    </script>
+</body>
+</html>

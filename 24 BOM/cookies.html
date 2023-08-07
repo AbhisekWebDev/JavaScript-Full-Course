@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="checkCookie()">
+    <p>
+        What are Cookies? <br>
+        Cookies are data, stored in small text files, on your computer. <br>
+        When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user. <br>
+        Cookies were invented to solve the problem "how to remember information about the user": <br>
+        When a user visits a web page, his/her name can be stored in a cookie. <br>
+        Next time the user visits the page, the cookie "remembers" his/her name. <br>
+        Cookies are saved in name-value pairs like: <br>
+        <br>
+        username = Abhisek Kumar
+        <br>
+        When a browser requests a web page from a server, cookies belonging to the page are added to the request. 
+        This way the server gets the necessary data to "remember" information about users.
+    </p>
+
+    <script>
+
+    // Create a Cookie with JavaScript
+        // JavaScript can create, read, and delete cookies with the document.cookie property.
+        // With JavaScript, a cookie can be created like this:
+
+        // document.cookie = "username = Abhisek Kumar";
+
+        // You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:
+        // document.cookie = "username = Abhisek Kumar; expires = Thu, 18 Dec 2013 12:00:00 UTC";
+
+        // With a path parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs to the current page.
+        // document.cookie = "username = Abhisek Kumar; expires = Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+
+
+    // Read a Cookie with JavaScript
+        // With JavaScript, cookies can be read like this:
+
+        // let x = document.cookie;
+        // document.cookie will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;
+
+
+    // Delete a Cookie with JavaScript
+        // Deleting a cookie is very simple.
+        // You don't have to specify a cookie value when you delete a cookie.
+
+        // Just set the expires parameter to a past date:
+        // document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        // You should define the cookie path to ensure that you delete the right cookie.
+
+
+
+
+
+    // JavaScript Cookie Example
+        // In the example to follow, we will create a cookie that stores the name of a visitor.
+        // The first time a visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a cookie.
+        // The next time the visitor arrives at the same page, he/she will get a welcome message.
+
+        // For the example we will create 3 JavaScript functions:
+
+        // A function to set a cookie value
+        // A function to get a cookie value
+        // A function to check a cookie value
+
+
+        // A Function to Set a Cookie
+            // First, we create a function that stores the name of the visitor in a cookie variable:
+
+        function setCookie(cookieName, cookieValue, expires) {
+            const date = new Date();
+            
+            date.setTime(date.getTime() + (expires*24*60*60*1000));
+
+            let expiry = "expires = " + date.toLocaleString();
+
+            document.cookie = cookieName + " = " + cookieValue + " = " + expires + "; path = /"
+        }
+
+            // Example explained:
+                // The parameters of the function above are the name of the cookie (cookieName), the value of the cookie (cookieValue), 
+                // and the number of days until the cookie should expire (expires).
+                // The function sets a cookie by adding together the cookie name, the cookie value, and the expires string.
+
+
+        // A Function to Get a Cookie
+            // Then, we create a function that returns the value of a specified cookie:
+
+        function getCookie(cookieName) {
+
+            let name = cookieName + " = ";
+
+            let decodeCookie = decodeURIComponent(document.cookie);
+
+            let ca = decodeCookie.split(';');
+
+            for(let i = 0 ; i < ca.length ; i++) {
+                let c = ca[i];
+
+                while(c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+
+                if(c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+
+            return "";
+
+        }
+
+            // Example explained:
+                // Take the cookiename as parameter (cookieName).
+                // Create a variable (name) with the text to search for (cookieName + "=").
+                // Decode the cookie string, to handle cookies with special characters, e.g. '$'
+                // Split document.cookie on semicolons into an array called ca (ca = decodedCookie.split(';')).
+                // Loop through the ca array (i = 0; i < ca.length; i++), and read out each value c = ca[i]).
+                // If the cookie is found (c.indexOf(name) == 0), return the value of the cookie (c.substring(name.length, c.length).
+                // If the cookie is not found, return "".
+
+
+        // A Function to Check a Cookie
+            // Last, we create the function that checks if a cookie is set.
+            // If the cookie is set it will display a greeting.
+            // If the cookie is not set, it will display a prompt box, asking for the name of the user, 
+            // and stores the username cookie for 365 days, by calling the setCookie function:
+
+            function checkCookie() {
+                let username = getCookie("username");
+
+                if(username != "") {
+                    alert("Welcome again " + username);
+                } else {
+                    username = prompt("Enter your name: ", "");
+
+                    if(username != "" && username != null) {
+                        setCookie("username", username, 365);
+                    }
+                }
+            }
+
+    </script>
+</body>
+</html>

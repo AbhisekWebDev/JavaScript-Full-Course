@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Name</label>
+    <input type="text" id="ice">
+    <br>
+    <label for="">
+        choose an ice cream flavour
+        <select name="iceCreams" id="iceCreams" onchange="selectElement()">
+            <option value="">Select one</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="Vanilla">Vanilla</option>
+            <option value="Butterscotch">Butterscotch</option>
+        </select>
+    </label>
+    <br>
+    <p id="result"></p>
+    <br>
+    <p>Using addEventListener</p>
+    <label for="">Name</label>
+    <input type="text" id="name">
+    <br>
+    <label for="">
+        choose an ice cream flavour
+        <select name="iceCreamOptions" id="iceCreamOptions">
+            <option value="">Select one</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="Vanilla">Vanilla</option>
+            <option value="Butterscotch">Butterscotch</option>
+        </select>
+    </label>
+    <br>
+    <p id="result1"></p>
+
+    <script>
+
+        const selectElement = () => {
+            const inputChange = document.getElementById("ice").value;
+
+            const iceCreams = document.getElementById("iceCreams").value;
+
+            console.log(`${inputChange} and ${iceCreams}`);
+
+            document.getElementById("result").innerHTML = `Your Name is ${inputChange} and your favourite ice cream flavour is ${iceCreams}`;
+        }
+
+
+    // using addEventListener
+
+        const iceCreamOptions = document.querySelector("#iceCreamOptions").addEventListener(
+            "change",
+            () => {
+                const name = document.getElementById("name").value;
+
+            const iceCreamOptions = document.getElementById("iceCreamOptions").value;
+
+            console.log(`${name} and ${iceCreamOptions}`);
+
+            document.getElementById("result1").innerHTML = `Your Name is ${name} and your favourite ice cream flavour is ${iceCreamOptions}`;
+            }
+        )
+
+    </script>
+</body>
+</html>

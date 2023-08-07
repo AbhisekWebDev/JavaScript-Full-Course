@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>The rest parameter (...) allows a function to treat an indefinite number of arguments as an array:</p>
+    <p id="result"></p>
+    <br>
+    <p>Finding the largest number.</p>
+    <p id="result1"></p>
+    <br>
+    <p>Sum of all arguments:</p>
+    <p id="result2"></p>
+
+    <script>
+
+    // The rest parameter (...) allows a function to treat an indefinite number of arguments as an array:
+
+        function sum(...args) {
+
+            let sum = 0;
+
+            for (let arg of args) sum += arg;
+            return sum;
+        }
+
+        let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+
+        document.getElementById("result").innerHTML = x;
+
+
+    // The Arguments Object
+        // JavaScript functions have a built-in object called the arguments object.
+        // The argument object contains an array of the arguments used when the function was called (invoked).
+        // This way you can simply use a function to find (for instance) the highest value in a list of numbers:
+
+        function findMax() {
+
+            let max = -Infinity;
+
+            for(let i = 0 ; i < arguments.length ; i++) {
+
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        } 
+        document.getElementById("result1").innerHTML = findMax(4, 5, 6);
+
+        //Or create a function to sum all input values:
+
+        function sumAll() {
+
+            let sum = 0;
+
+            for(let i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        document.getElementById("result2").innerHTML = sumAll(1, 123, 500, 115, 44, 88);
+
+    // If a function is called with too many arguments (more than declared), these arguments can be reached using the arguments object.    
+
+    </script>
+</body>
+</html>

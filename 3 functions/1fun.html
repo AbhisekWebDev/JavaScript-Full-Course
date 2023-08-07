@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Function Delceration <br>
+        Declared functions are not executed immediately. <br>
+        They are "saved for later use", and will be executed later, when they are invoked (called upon).
+    </p>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <br>
+    <p>
+        Function Expression <br>
+        A JavaScript function can also be defined using an expression. <br>
+        A function expression can be stored in a variable: <br>
+        After a function expression has been stored in a variable, the variable can be used as a function:
+    </p>
+    <p id="result2"></p>
+    <br>
+    <p>
+        Self Invoking function <br>
+        We cannot self-invoke a function declaration. <br>
+        Function expressions will execute automatically if the expression is followed by (). <br>
+        We have to add parentheses around the function to indicate that it is a function expression: <br>
+        ex. <br> <br>
+
+                                ( <br>
+            &nbsp;                function () { <br>
+             &nbsp;&nbsp;&nbsp;     document.getElementById("result3").innerHTML = "Hello! I am Abhisek, I called myself"; <br>
+             &nbsp;               } <br>
+                                ) <br>
+                                (); 
+
+    </p>
+    <p id="result3"></p>
+    <br>
+    <p>
+        Functions can be treated as values: <br>
+        x = myFunction(4,3) or x = 12 <br>
+        In both cases, x becomes a number with the value of 12.
+    </p>
+    <p id="result4"></p>
+    <br>
+    <p>Functions can be used as expressions</p>
+    <p id="result5"></p>
+    <br>
+    <p>The toString() method returns the function as a string:</p>
+    <p id="result6"></p>
+
+    <script>
+
+    // Function Delceration
+
+        // Declared functions are not executed immediately. 
+        // They are "saved for later use", and will be executed later, when they are invoked (called upon).
+
+        let x = myFun(4, 3);
+
+        function myFun(a, b) {
+           document.getElementById('result').innerHTML = a + b;
+           return a * b;
+        }
+        console.log(myFun(2, 5));
+        document.getElementById("result1").innerHTML = myFun(2, 5);
+
+
+    // Function Expression 
+
+        // A JavaScript function can also be defined using an expression.
+        // A function expression can be stored in a variable:
+        // After a function expression has been stored in a variable, the variable can be used as a function:
+
+        const y = function (a, b) {return a * b};
+        document.getElementById("result2").innerHTML = y(4, 3);
+
+        // The function above is actually an anonymous function (a function without a name).
+        // Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+
+
+    // Self-Invoking Functions
+
+        // Function expressions can be made "self-invoking".
+        // A self-invoking expression is invoked (started) automatically, without being called.
+        // Function expressions will execute automatically if the expression is followed by ().
+
+    // We cannot self-invoke a function declaration.
+
+        // We have to add parentheses around the function to indicate that it is a function expression:
+
+        (
+            function () {
+                document.getElementById("result3").innerHTML = "Hello! I am Abhisek, I called myself";
+            }
+        )
+        ();
+
+
+    // Functions Can Be Used as Values
+
+        function myFunction(a, b) {
+            return a * b;
+        }
+        let z = myFunction(4, 3);
+        document.getElementById("result4").innerHTML = z;
+
+
+    // Functions can be used in expressions:
+
+        function myFunction1(a, b) {
+        return a * b;
+        }
+
+        let b = myFunction1(4, 3) * 2;
+        document.getElementById("result5").innerHTML = b;
+
+        let text = myFunction.toString();
+        document.getElementById("result6").innerHTML = text;
+        
+    </script>
+</body>
+</html>

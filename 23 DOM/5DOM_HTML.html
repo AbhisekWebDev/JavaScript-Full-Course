@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Changing HTML :</p>
+    <p id="result">Old Heading</p>
+    <br>
+    <p>Changing attribute value :</p>
+    <img id="image" src="https://www.w3schools.com/js/landscape.jpg" width="160" height="120">
+    <p>The original image was smiley.gif, but the script changed it to books.jpg</p>
+    <br>
+    <p id="result1"></p>
+
+    <script>
+
+    // JavaScript HTML DOM - Changing HTML
+        
+        const element = document.getElementById("result");
+        element.innerHTML = "New Heading";
+
+
+    // Changing the Value of an Attribute
+
+        document.getElementById("image").src = "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?w=360";
+
+
+    // Dynamic HTML content
+        // JavaScript can create dynamic HTML content:
+
+        // Date : Sun Jul 23 2023 10:24:23 GMT+0530 (India Standard Time)
+
+        document.getElementById("result1").innerHTML = "Date = " + Date();
+
+        // ye direct show krega
+        document.write(Date());
+
+    </script>
+</body>
+</html>

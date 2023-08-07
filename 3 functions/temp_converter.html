@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="temp">Enter Temperature For Conversion</label>
+        <input type="text" id="degrees">
+        <button type="submit" id="submit">submit</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        const btn = document.querySelector('#submit')
+        const degrees = document.querySelector('#degrees');
+
+        btn.addEventListener('click' , 
+        
+            function(event) {
+                
+                event.preventDefault();
+
+                function toCelcius(f) {
+                    return ( (5/7) * (f - 32) );
+                }
+
+                document.getElementById('result').innerHTML = Math.floor( toCelcius( parseFloat(degrees.value) ) );
+
+            }
+
+        )
+
+    </script> 
+</body>
+</html>

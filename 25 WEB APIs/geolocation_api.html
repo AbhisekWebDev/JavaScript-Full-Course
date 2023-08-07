@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Using the Geolocation API</p>
+    <br>
+    <p>Click the button to get your coordinates.</p>
+    <button onclick="getLocation()">Try It</button>
+    <p id="result"></p>
+    <br>
+    <p>Click the button to get your coordinates. With ERROR Handling</p>
+    <button onclick="getLocation1()">Try It</button>
+    <p id="result1"></p>
+
+    <script>
+
+    // The getCurrentPosition() method is used to return the user's position.
+
+        const x = document.getElementById("result");
+    
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+        }
+
+        // Example explained:
+
+            // Check if Geolocation is supported
+            // If supported, run the getCurrentPosition() method. If not, display a message to the user
+            // If the getCurrentPosition() method is successful, it returns a coordinates object to the function specified in the parameter (showPosition)
+            // The showPosition() function outputs the Latitude and Longitude
+
+            // The example above is a very basic Geolocation script, with no error handling.
+
+        // Handling Errors and Rejections
+            // The second parameter of the getCurrentPosition() method is used to handle errors. It specifies a function to run if it fails to get the user's location:
+
+        const y = document.getElementById("result1");
+
+        function getLocation1() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else { 
+                y.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            y.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    y.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    y.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    y.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    y.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+
+
+    // Displaying the Result in a Map
+        // To display the result in a map, you need access to a map service, like Google Maps.
+        // In the example below, the returned latitude and longitude is used to show the location in a Google Map (using a static image):
+
+        // function showPosition(position) {
+        //     let latlon = position.coords.latitude + "," + position.coords.longitude;
+
+        //     let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=
+        //     "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";    -  -  -  -  ->  in here the API key will be required.
+
+        //     document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+        // }
+        
+    </script>
+</body>
+</html>

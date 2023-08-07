@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+
+    <script>
+
+    // object properties
+
+        // dynamic data
+        let name = "Abhi";
+        const bio = {
+            [name] : "wossup",
+            [20 + 6] : "is my age"
+        }
+        document.getElementById("result").innerHTML = bio;
+        console.log(bio);
+        // ye bas console/terminal me dikhega
+
+
+    // no need to write key : value, if both are same
+
+        let name1 = 'Abhi';
+        let age = 26;
+        const bio1 = {name1, age};
+        console.log(bio1);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <script>
+
+        const cars = {type : 'fiat', model : '500', color : 'red'};
+
+    // change a property 
+        cars.color = 'blue';
+        console.log(cars);
+        document.getElementById('result').innerHTML = cars.type + ", " + cars.model;
+
+    // add a property
+        cars.owner = 'abhi';
+        console.log(cars);
+        document.getElementById('result1').innerHTML = cars.owner + ", " + cars.type + ", " + cars.model;
+        
+    </script>
+</body>
+</html>

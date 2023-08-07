@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Callback Function</p>
+    <p id="result"></p>
+
+    <script>
+
+    // callback function
+        // a functuon which gets as an argument to another function is called callback function
+        // a callback function is a function that is pased as an argument to another function,
+        // to be called back at a later stage.
+
+
+    // calculator using callback
+        
+         const add = (a, b) => {
+            return a + b;
+         }
+
+         const sub = (a, b) => {
+            return a - b;
+         }
+
+         const mult = (a, b) => {
+            return a * b;
+         }
+
+         const div = (a, b) => {
+            return a / b;
+         }
+
+         const mod = (a, b) => {
+            return a % b;
+         }
+
+         const calculator = (num1, num2, operator) => {
+            return operator(num1, num2);
+         }
+
+         let result = calculator(5, 2, add);
+
+         console.log(result);
+
+         document.getElementById("result").innerHTML = result;
+
+    </script>
+</body>
+</html>

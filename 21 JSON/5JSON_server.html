@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>JSON server</p>
+    <p>Sending data</p>
+    <br>
+    <p>Using AJAX</p>
+    <p>In this i have used json_demo.txt file</p>
+    <p id="result"></p>
+    <br>
+    <p>Using fetch API</p>
+    <p>In this i have used json_demo.json file</p>
+    <p id="result1"></p>
+    
+
+    <script>
+
+    // Sending Data
+        // If you have data stored in a JavaScript object, you can convert the object into JSON, and send it to a server:   
+
+            // const myObj = { name: "John", age: 31, city: "New York" };
+            // const myJSON = JSON.stringify(myObj);
+            // window.location = "demo_json.php?x=" + myJSON;
+
+
+    // JSON From a Server
+        // You can request JSON from the server by using an AJAX request / fetch
+        // As long as the response from the server is written in JSON format, you can parse the string into a JavaScript object.
+
+
+    // Using AJAX with json_demo.txt file
+
+        const xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onload = function() {
+            const myObj = JSON.parse(this.responseText);
+            document.getElementById("result").innerHTML = myObj.name;
+        }
+
+        xmlhttp.open("GET", "json_demo.txt");
+        xmlhttp.send();
+
+
+    // Using fetch with json_demo.json file
+
+        // isme biina kuch alag kiye json demo.txt file bhi chal gya ekdm easily
+
+        fetch("json_demo.json")
+        .then(
+                (response) => response.json()
+            )
+        .then(
+            (data) => {
+                let text = data.name + "'s pets names : ";
+
+                for (let pet of data.pets) {
+                    text += pet.name + ", ";
+                }
+
+                document.getElementById("result1").innerHTML = text;
+            }
+        )
+        .catch(
+            (error) => {
+                console.error("Error fetching data:", error);
+            }
+        );
+
+    </script>
+</body>
+</html>

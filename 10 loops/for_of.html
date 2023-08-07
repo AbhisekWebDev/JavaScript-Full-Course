@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+
+    <script>
+
+    // The JavaScript for of statement loops through the values of an iterable object.
+    // It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+
+        //for of over an array
+        const cars = ["BMW", "Volvo", "Mini"];
+        let text = "";
+        for (let x of cars) {
+            text += x + "<br>";
+        }
+        document.getElementById("result").innerHTML = "for of loop over an array : <br>" + text;
+
+
+        //for of over a string
+        let language = "Abhisek";
+        let txt = "";
+        for (let x of language) {
+            txt += x + "<br>";
+        }
+        document.getElementById("result1").innerHTML = "for of loop over a string : <br>" + txt;
+
+
+        //for of over a set
+        const letters = new Set(["a","b","c"]);
+        // List all Elements
+        let text1 = "";
+        for (const x of letters) {
+            text1 += x + "<br>";
+        }
+        document.getElementById("result2").innerHTML = "for of loop over a set : <br>" + text1;
+
+
+        //for of over a map
+        const fruits = new Map(
+            [
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]
+        );
+        // List all entries
+        let text2 = "";
+        for (const x of fruits) {
+            text2 += x + "<br>";
+        }
+        document.getElementById("result3").innerHTML = "for of loop over a map : <br>" + text2;
+
+    </script>
+</body>
+</html>

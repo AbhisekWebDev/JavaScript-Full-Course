@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        The call() method is a predefined JavaScript method. <br>
+        It can be used to invoke (call) a method with an owner object as an argument (parameter). <br>
+        With call(), an object can use a method belonging to another object.
+    </p>
+    <p id="result"></p>
+    <p>The call() Method with Arguments. The call() method can accept arguments:</p>
+    <p id="result1"></p>
+    <br>
+    <p>In this example the fulllName method of myNamme is <b>applied</b> on name :</p>
+    <p id="result2"></p>
+    <p>The apply() Method with Arguments. The apply() method can accept arguments:</p>
+    <p id="result3"></p>
+
+    <script>
+
+// The JavaScript call() Method
+    // The call() method is a predefined JavaScript method.
+    // It can be used to invoke (call) a method with an owner object as an argument (parameter).
+    // With call(), an object can use a method belonging to another object.
+
+    // This prog calls the fullName method of person, using it on person1:
+
+        const person = {
+
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            },
+
+            // The call() Method with Arguments
+            // The call() method can accept arguments:
+
+            country: function(country, state) {
+                return this.firstName + " " + this.lastName + "," + country + "," + state;
+            }
+        }
+
+        const person1 = {
+            firstName:"Abhisek",
+            lastName: "Kumar"
+        }
+
+        const person2 = {
+            firstName:"Abhi",
+            lastName: "Kumar"
+        }
+
+        document.getElementById("result").innerHTML = person.fullName.call(person1); 
+
+        document.getElementById("result1").innerHTML = person.country.call(person2, "India", "WB"); 
+
+
+
+    // The Difference Between call() and apply()
+        // The difference is:
+        // The call() method takes arguments separately.
+        // The apply() method takes arguments as an array.
+        
+
+
+        // The apply() method
+
+        const myName = {
+
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        },
+
+        country: function(country, state) {
+            return this.firstName + " " + this.lastName + "," + country + "," + state;
+        }
+        }
+
+        const name = {
+            firstName:"Abhisek",
+            lastName: "Kumar"
+        }
+
+        const name1 = {
+            firstName:"Abhi",
+            lastName:"Kumar"
+        }
+
+        document.getElementById("result2").innerHTML = myName.fullName.apply(name); 
+
+        document.getElementById("result3").innerHTML = myName.country.apply(name1, ["India", "WB"]); 
+
+    </script>
+</body>
+</html>

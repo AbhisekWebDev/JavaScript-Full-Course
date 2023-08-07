@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+    <p id="result7"></p>
+    <p id="result8"></p>
+    <p id="result9"></p>
+    <p id="result10"></p>
+    <p id="result11"></p>
+    
+    <script>
+
+        const date = new Date();
+        document.getElementById("result").innerHTML = "getFullYear method : " + date.getFullYear();
+        document.getElementById("result1").innerHTML = "getMonth method : " + date.getMonth();
+        document.getElementById("result2").innerHTML = "getDate method : " + date.getDate();
+        document.getElementById("result3").innerHTML = "getDay method : " + date.getDay();
+        document.getElementById("result4").innerHTML = "getHours method : " + date.getHours();
+        document.getElementById("result5").innerHTML = "getMinutes method : " + date.getMinutes();
+        document.getElementById("result6").innerHTML = "getSeconds method : " + date.getSeconds();
+        document.getElementById("result7").innerHTML = "getMilliseconds method : " + date.getMilliseconds();
+        document.getElementById("result8").innerHTML = "getTime method : " + date.getTime();
+        // const milliseconds = new Date();
+        // let seconds = Math.floor(milliseconds / 1000);
+        // let minutes = Math.floor(seconds / 60);
+        // let hours = Math.floor(minutes / 60);
+        // document.getElementById("result9").innerHTML = "The time after calculating the getTime method is : " + hours + ":" + minutes + ":" + seconds;
+
+    //we can use an array of names to return the month, day as a name...
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const d = new Date();
+        let month = months[d.getMonth()];
+        document.getElementById("result10").innerHTML = month;
+
+        //ye khud se day ka banaya hun
+        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const dat = new Date();
+        let day = days[dat.getDay()];
+        document.getElementById("result11").innerHTML = day;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <br>
+    <p>Looping object property values using for..in :</p>
+    <p id="result1"></p>
+    <br>
+    <p>Adding a property in existing object :</p>
+    <p id="result2"></p>
+    <br>
+    <p>Deleting a property from the object :</p>
+    <p id="result3"></p>
+    <br>
+    <p>Nested objects</p>
+    <p id="result4"></p>
+    <br>
+    <p>Nested Arrays and Objects. Values in objects can be arrays, and values in arrays can be objects</p>
+    <p id="result5"></p>
+    <br>
+    <p>Displaying object using object.values() method</p>
+    <p id="result6"></p>
+    <br>
+    <p>Displaying object using object.entries() method</p>
+    <p id="result7"></p>
+
+    <script>
+            // A JavaScript object is a collection of named values
+
+            // JavaScript Objects are Mutable
+            // Objects are mutable: They are addressed by reference, not by value.
+
+    // objects can also have methods, 
+    // methods are stored in properties as function definition
+        const person = { fName : 'Abhi' , lName : 'Kumar' , age : 27,
+
+            fullName : function() {
+                return this.fName + ' ' + this.lName;
+            }
+
+        };
+        document.getElementById('result').innerHTML = person.fullName();
+    // in this function -> this refers to person object
+    // in JS this keyword refers to an object
+
+
+    // Looping through the object
+        const person1 = {
+            fname:"Abhi",
+            lname:"Kumar",
+            age:26
+        }; 
+
+        let txt = "";
+        for (let x in person1) {
+            txt += person1[x] + " ";
+        }
+        document.getElementById("result1").innerHTML = txt;
+
+
+    // Adding new property to the object
+        const person2 = {
+            firstname: "Abhi",
+            lastname: "Kumar",
+            age: 30,
+            eyecolor: "black"
+        };
+
+        person2.nationality = "English";
+        document.getElementById("result2").innerHTML = person2.firstname + " is " + person2.nationality;
+
+
+    // deleting a property form the object
+        // The delete keyword deletes both the value of the property and the property itself.
+        const person3 = {
+            firstname: "Abhi",
+            lastname: "Kumar",
+            age: 30,
+            eyecolor: "black"
+        };
+
+        delete person3.age;
+        document.getElementById("result3").innerHTML = person3.firstname + " is " + person3.age + " years old.";
+
+
+    // Nested objects
+        const myObj = {
+            name: "Abhisek",
+            age: 30,
+            cars: {
+                car1: "Ford",
+                car2: "Aston Martin",
+                car3: "Fiat"
+            }
+        }
+        document.getElementById("result4").innerHTML = "My name is " + myObj.name + " and i have " + myObj.cars.car2 + " and a " + myObj.cars.car1 ;
+
+
+    // Nested Arrays and Objects
+    // Values in objects can be arrays, and values in arrays can be objects
+        let x = "";
+        const obj = {
+            name : "Abhisek",
+            age : 27,
+            carsx : [
+                {
+                    name : "Ford",
+                    models : [
+                        "Fiesta", "Focus", "Mustang"
+                    ]
+                }
+                ,
+                {
+                    name : "BMW",
+                    models : [
+                        "320", "XYZ", "ABC"
+                    ]
+                }
+                ,
+                {
+                    name : "Fiat",
+                    models : [
+                        "500", "Panda"
+                    ]
+                }
+            ]
+        }
+
+        for(let i in obj.carsx) {
+            x += "<h2>" + obj.carsx[i].name + "</h2>";
+
+            for(let j in obj.carsx[i].models) {
+                x += obj.carsx[i].models[j] + "<br>";
+            }
+        }
+        document.getElementById("result5").innerHTML = x;
+
+
+    // Displaying objects using object.values()
+        const person4 = {
+            name: "Abhi",
+            age: 30,
+            city: "Kolkata"
+        };
+        document.getElementById("result6").innerHTML = Object.values(person4);
+        
+
+    // Displaying objects using object.entries()
+        const person5 = {
+            name: "Abhi",
+            age: 30,
+            city: "Kolkata"
+        };
+        document.getElementById("result7").innerHTML = Object.entries(person5);
+
+    </script>
+</body>
+</html>

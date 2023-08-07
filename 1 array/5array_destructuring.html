@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+
+    <script>
+
+    // array destructuring
+
+        const bio = ['Abhi', 'Kumar', 26];
+
+        // let [fName, lName, age] = bio;
+
+        // yaha pr naya value bhi assign krwa skte h
+        let [fName, lName, age, degree = "BCA"] = bio;
+
+        document.getElementById("result").innerHTML = degree;
+
+    </script>
+</body>
+</html>

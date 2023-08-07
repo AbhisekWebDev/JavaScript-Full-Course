@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Function Sequence
+        JavaScript functions are executed in the sequence they are called.
+    </p>
+    <p id="result"></p>
+    <br>
+    <p>
+        We could call a calculator function (myCalculator), save the result, 
+        and then call another function (myDisplayer) to display the result:
+    </p>
+    <p>The result of the calculation is:</p>
+    <p id="result1"></p>
+    <br>
+    <p>
+        We could call a calculator function (myCalculator), 
+        and let the calculator function call the display function (myDisplayer):
+    </p>
+    <p>The result of the calculation is:</p>
+    <p id="result2"></p>
+    <br>
+    <p>
+        Using a callback, you could call the calculator function (myCalculator) with a callback (myCallback), 
+        and let the calculator function run the callback after the calculation is finished:
+    </p>
+    <p>The result of the calculation is:</p>
+    <p id="result3"></p>
+    <br>
+    <p>Removing all the negative numbers from an array using Callback Function</p>
+    <p id="result4"></p>
+    <p id="result4.1"></p>
+
+    <script>
+
+                    // When to Use a Callback?
+
+                    // The examples below are simplified to teach you the callback syntax.
+                    // Where callbacks really shine are in asynchronous functions, where one function has to wait for another function (like waiting for a file to load).
+
+
+
+    // A callback is a function passed as an argument to another function
+    // This technique allows a function to call another function
+    // A callback function can run after another function has finished
+
+        // Function sequence - JavaScript functions are executed in the sequence they are called. Not in the sequence they are defined.
+
+        // This prog will end up displaying "Goodbye"
+
+        function displayer(functionBulaye) {
+            document.getElementById("result").innerHTML = functionBulaye;
+        }
+
+        function first() {
+            displayer("Hello");
+        }
+
+        function second() {
+            displayer("Abhisek");
+        }
+
+        second();
+        first();
+
+
+
+    // Sequence Control
+        // Sometimes we would like to have better control over when to execute a function.
+        // Suppose we want to do a calculation, and then display the result.
+        // We could call a calculator function (myCalculator), save the result, and then call another function (myDisplayer) to display the result:
+
+        function displayer(functionCall) {
+            document.getElementById("result1").innerHTML = functionCall;
+        }
+
+        function calculator(a, b) {
+            let sum = a + b;
+            return sum;
+        }
+
+        displayer(calculator(10, 30));
+        // is function call ko ek variable me store kr k bhi call kiya ja skta h..
+
+        // Ex. - 
+
+        // let result = calculator(44, 11);
+        // displayer(result);
+
+
+        // Or, we could call a calculator function (myCalculator), 
+        // and let the calculator function call the display function (myDisplayer):
+
+        function displayer1(FunCall) {
+            document.getElementById("result2").innerHTML = FunCall;
+        }
+
+        function calculator1(a, b) {
+            let sum = a * b;
+
+            displayer1(sum);
+        }
+
+        calculator1(11, 22);
+
+    // The problem with the first example above, is that you have to call two functions to display the result.
+    // The problem with the second example, is that you cannot prevent the calculator function from displaying the result.
+
+    // Now it is time to bring in a callback.
+
+    // Using a callback, you could call the calculator function (myCalculator) with a callback (myCallback), 
+    // and let the calculator function run the callback after the calculation is finished:
+
+        function displayer2(funCall) {
+            document.getElementById("result3").innerHTML = funCall;
+        }
+
+        function calculator2(a, b, myCallback) {
+            let sum = a - b;
+
+            myCallback(sum);
+        }
+
+        // Note : -
+        // When you pass a function as an argument, remember not to use parenthesis.
+        // Right: myCalculator(5, 5, myDisplayer);
+        // Wrong: myCalculator(5, 5, myDisplayer());
+
+        calculator2(9, 2, displayer2);
+
+        // In the example above, myDisplayer is a called a callback function.
+        // It is passed to myCalculator() as an argument.
+
+        
+
+    // In the example below, (x) => x >= 0 is a callback function.
+    // It is passed to removeNeg() as an argument.
+
+        const num = [1, 2, -1, 3, -5, 7, 10, 66, -99, 100, -177];
+        document.getElementById("result4").innerHTML = num;
+        
+        // call removeNeg with a callback
+        const posNum = removeNeg(
+            num, 
+            (x) => x >= 0
+        )
+
+        // keeping positive numbers only
+        function removeNeg(num, callback) {
+            const arr = [];
+
+            for(const x of num) {
+                if(callback(x)) {
+                    arr.push(x);
+                }
+            }
+
+            return arr;
+        }
+
+        // displaying result
+        document.getElementById("result4.1").innerHTML = posNum;
+
+    </script>
+</body>
+</html>

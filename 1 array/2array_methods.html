@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+    <p id="result7"></p>
+    <p id="result8"></p>
+    <p id="result9"></p>
+    <p id="result10"></p>
+    <p id="result11"></p>
+    <p id="result12"></p>
+    <p id="result12.1"></p>
+    <p id="result13"></p>
+    <p id="result14"></p>
+    <p id="result15"></p>
+    <hr>
+    <p id="result16"></p>
+    <p id="result17"></p>
+
+    <script>
+       
+        const fruits = ["Banana ", " Orange ", " Apple ", " Mango"];
+
+    //The toString() method converts array to string
+        document.getElementById("result").innerHTML = fruits.toString();
+
+
+    //The join() method joins array elements into a string
+        document.getElementById("result1").innerHTML = fruits.join(" / "); //paranthesis k andr koi bhi symbol (*/,.<>?\|...) seperator ka kam krega
+
+        
+    //The pop() method removes the last element from an array
+        fruits.pop();
+        document.getElementById("result2").innerHTML = fruits;
+
+
+    //The push() method appends a new element at the end of an array
+        fruits.push("Kiwi");
+        document.getElementById("result3").innerHTML = fruits;
+
+
+    //The shift() method removes the first element of an array (and "shifts" the other elements to the left)
+        fruits.shift();
+        document.getElementById("result4").innerHTML = fruits;
+
+
+    //The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements
+        fruits.unshift("Litchi");
+        document.getElementById("result5").innerHTML = fruits;
+
+
+    //Array elements are accessed and can be changed using their index number
+        document.getElementById("result").innerHTML = fruits;
+        fruits[0] = "Kiwi";
+        document.getElementById("result6").innerHTML = fruits;
+
+
+    //Deleting elements leaves undefined holes in an array
+        delete fruits[0];
+        document.getElementById("result7").innerHTML = "The first fruit is: " + fruits[0];
+
+
+    //The concat() method merges (concatenates) arrays
+        const myGirls = [" Cecilie ", " Lone "];
+        const myBoys = [" Emil ", " Tobias ", " Linus "];
+        const myChildren = myGirls.concat(myBoys);
+        document.getElementById("result8").innerHTML = "Name of Girls : " + myGirls;
+        document.getElementById("result9").innerHTML = "Name of Boys : " + myBoys;
+        document.getElementById("result10").innerHTML = "Name of Both Boys & Girls by Concaneting : " + myChildren;
+
+
+        const array1 = [" Cecilie ", " Lone "];
+        const array2 = [" Emil ", " Tobias ", " Linus "];
+        const array3 = [" Robin ", " Morgan "];
+        const myArr = array1.concat(array2, array3); 
+        document.getElementById("result11").innerHTML = "Array 1 : " + array1 + " <br> Array 2 : " + array2 + " <br> MyArr by concaneting both array1 & array2 : " +  myArr;
+
+
+    //The flat() method creates a new array with sub-array elements concatenated to a specified depth
+        const myArr1 = [
+            [1,2],
+            [3,4],
+            [5,6]
+        ];
+        const newArr = myArr1.flat();
+        document.getElementById("result12").innerHTML = newArr;
+        
+
+        // Array of an array
+        const myArr2 = [
+            [1,2],
+            [3,4],
+            [5,6,[7,8]]
+        ];
+        const newArr2 = myArr2.flat(Infinity);
+        document.getElementById("result12.1").innerHTML = newArr2;
+        console.log(newArr2);
+
+
+
+    //The splice() method returns an array with the deleted items
+        const fruits1 = ["Banana ", " Orange ", " Apple ", " Mango"];
+        document.getElementById("result13").innerHTML = fruits1;
+    //The first parameter (2) defines the position where new elements should be added (spliced in).
+    //The second parameter (0) defines how many elements should be removed.
+    //The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+        fruits1.splice(2, 0, " Lemon ", " Kiwi ");
+        document.getElementById("result14").innerHTML = "Adding elements using splice() method : " + fruits1;
+
+    //The splice() methods can be used to remove array elements
+        fruits1.splice(0, 1);
+        document.getElementById("result15").innerHTML = "Removing elements using splice() method : " + fruits1;
+
+
+    //The slice() method slices out a piece of an array into a new array
+        const fruits2 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        document.getElementById("result16").innerHTML = fruits2;
+        const citrus = fruits2.slice(1);
+    //The slice() method creates a new array.
+    //The slice() method does not remove any elements from the source array.
+        document.getElementById("result17").innerHTML = citrus;
+
+    </script>
+</body>
+</html>

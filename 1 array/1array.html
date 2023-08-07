@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <script>
+
+        const cars = ['saab', 'volvo', 'BMW'];
+
+    // change an element
+        cars[2] = 'honda';
+        console.log(cars);
+        document.getElementById('result').innerHTML = cars;
+
+    // add an element
+        cars.push('audi')
+        console.log(cars);
+        document.getElementById('result1').innerHTML = cars;
+        
+    </script>
+</body>
+</html>

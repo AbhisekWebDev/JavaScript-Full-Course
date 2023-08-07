@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>If a form field (fname) or (lname) is empty, this function alerts a message, and returns false, to prevent the form from being submitted:</p>
+
+    <form action="" name="form" method="post" onsubmit="return validateForm()">
+        First Name : <input type="text" name="fname">
+        <br>
+        Last Name : <input type="text" name="lname">
+        <br>
+        <input type="submit" value="Submit" onclick="error()">
+    </form>
+
+    <p id="result"></p>
+
+    <br>
+
+    <p>JS neumeric validation</p>
+
+    <p>Please input a number between 1 and 10:</p>
+
+    <input id="numb">
+
+    <button type="button" onclick="myFunction()">Submit</button>
+
+    <p id="result1"></p>
+
+    <script>
+
+    // JavaScript Form Validation
+
+        // If a form field (fname) is empty, 
+        // this function alerts a message, and returns false, 
+        // to prevent the form from being submitted:
+
+        function validateForm() {
+            let x = document.forms["form"]["fname"].value;
+            let y = document.forms["form"]["lname"].value;
+
+            if(x == "") {
+                alert("First Name Should Not Be Empty");
+                return false;
+            } else {
+                alert("Last Name Should Not Be Empty");
+            }
+        }
+
+
+    // JavaScript Neumaric Validation
+        
+        function myFunction() {
+            let numb = document.getElementById("numb").value;
+
+            let text;
+
+            if(isNaN(numb) || numb < 1 || numb > 10) {
+                text = "Invalid input";
+            } else {
+                text = "Noiccc";
+            }
+
+            document.getElementById("result1").innerHTML = text;
+        }
+
+    </script>
+</body>
+</html>

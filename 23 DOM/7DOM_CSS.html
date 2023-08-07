@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(0, 255, 153);
+        color: red;
+    }
+    </style>
+<body>
+    <p id="result">Hi My name is Abhisek</p>
+    <p id="result1">This p tag is styled by DOM CSS using JS</p>
+
+    <br>
+
+    <p>Click the button to display the style properties of this document.</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <p id="result2"></p>
+
+    <br>
+
+    <p>Click the button to create a STYLE element, and place it in the head section.</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <p>The created style element contains css declarations that will change the font properties of this document.</p>
+
+    <script>
+
+    // JS CSS DOM
+
+        document.getElementById("result1").style.color = "aqua";
+        document.getElementById("result1").style.fontFamily = "Arial";
+        document.getElementById("result1").style.fontSize = "bold";
+
+
+    // Access a Style Object
+        // The Style object can be accessed from the head section of the document, or from specific HTML element(s).
+        //Accessing style object(s) from the head section of the document:
+
+        function myFunction() {
+            var x = document.getElementsByTagName("STYLE")[0];
+            document.getElementById("result2").innerHTML = x.innerHTML;
+        }
+
+
+
+        function myFunction() {
+            var x = document.createElement("STYLE");
+
+            var t = document.createTextNode(
+                `body {
+                    font: 20px verdana;
+                }`
+            );
+
+            x.appendChild(t);
+            
+            document.head.appendChild(x);
+        }
+
+    </script>
+</body>
+</html>

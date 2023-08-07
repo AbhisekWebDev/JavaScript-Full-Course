@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>A loop with a <b>break</b> statement.</p>
+    <p id="result"></p>
+    <br>
+    <p>A loop with a <b>continue</b> statement.</p>
+    <p id="result1"></p>
+    <br>
+    <p id="result2"></p>
+
+    <script>
+
+    //Creak statement - The break statement, without a label reference, can only be used to jump out of a loop or a switch.
+        let text = "";
+        for (let i = 0; i < 10; i++) {
+            if (i === 3)
+            { 
+                break; 
+            }
+            text += "The number is " + i + "<br>";
+        }
+        document.getElementById("result").innerHTML = text;
+
+
+    //Continue statement - The continue statement (with or without a label reference) can only be used to skip one loop or a switch
+        let text1 = "";
+        for (let i = 0; i < 10; i++) {
+            if (i === 3) 
+            { 
+                continue; 
+            }
+            text1 += "The number is " + i + "<br>";
+        }
+        document.getElementById("result1").innerHTML = text1;
+
+
+    //With a label reference, the break statement can be used to jump out of any code block 
+        
+        //Utna Important nhi h ye label
+
+        const cars = ["BMW", "Volvo", "Saab", "Ford"];
+        let text2 = "";
+        
+        list: {
+            text2 += cars[0] + "<br>"; 
+            text2 += cars[1] + "<br>"; 
+
+            break list;
+
+            text2 += cars[2] + "<br>"; 
+            text2 += cars[3] + "<br>"; 
+        }
+        document.getElementById("result2").innerHTML = text2;
+
+    </script>
+</body>
+</html>

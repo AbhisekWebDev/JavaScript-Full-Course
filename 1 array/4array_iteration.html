@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p>
+    <p id="result6"></p>
+    <p id="result7"></p>
+    <p id="result8"></p>
+    <p id="result9"></p>
+    <p id="result10"></p>
+    <p id="result11"></p>
+    <p id="result12"></p>
+    <p id="result13"></p>
+    <p id="result14"></p>
+    <p id="result15"></p>
+    <p id="result16"></p>
+    <p id="result17"></p>
+    <p id="result18"></p>
+    <p id="result19"></p>
+    <p id="result20"></p>
+    <p id="result21"></p>
+    <p id="result22"></p>
+    <p id="result23"></p>
+    <p id="result24"></p>
+    <p id="result25"></p>
+
+    <script>
+
+//IN SAB FUNCTIONS ME VALUE K ILAWA BAKI 2 ARGUMENTS OPTIONAL H
+
+    //forEach() method calls a function once for each array element
+        const num = [45, 4, 9, 16, 25];
+        let txt = "";
+        num.forEach(myFunction);
+
+    //the function takes 3 arguments:
+            //The item value
+            //The item index
+            //The array itself
+        function myFunction(value) {
+        txt += value + "<br>";
+        }
+        document.getElementById("result").innerHTML = txt;
+
+
+
+    //The map() method creates a new array by performing a function on each array element.
+    //The map() method does not execute the function for array elements without values.
+    //The map() method does not change the original array.
+        const numbers1 = [45, 4, 9, 16, 25];
+        const numbers2 = numbers1.map(myFun);
+
+        function myFun(value) {
+        return value * 2;
+        }
+        document.getElementById("result1").innerHTML = numbers2;
+
+
+    //flatMap() method first maps all elements of an array and then creates a new array by flattening the array
+        const myArr = [1, 2, 3, 4, 5,6];
+        document.getElementById("result2").innerHTML = myArr;
+
+        const newArr = myArr.flatMap(
+            (x) => x * 2
+        );
+        document.getElementById("result3").innerHTML = newArr;
+
+
+    //The filter() method creates a new array with array elements that pass a test
+        const numbers = [45, 4, 9, 16, 25];
+        document.getElementById("result4").innerHTML ="Find the numbers over 18 in an array using filter method : " + numbers;
+
+        const over18 = numbers.filter(myFunction);
+
+        function myFunction(value, index, array) {
+        return value > 18;
+        }
+        document.getElementById("result5").innerHTML = "Numbers over 18 are : " + over18;
+
+        
+    //The reduce() method runs a function on each array element to produce (reduce it to) a single value.
+    //The reduce() method works from left-to-right in the array. See also reduceRight().
+    //The reduce() method does not reduce the original array.
+        const number = [45, 4, 9, 16, 25];
+        document.getElementById("result6").innerHTML = "Find the sum of all numbers in an array using reduce method : " + numbers;
+
+        let sum = number.reduce(myFunc);
+
+    //the function takes 4 arguments:
+            //The total (the initial value / previously returned value)
+            //The item value
+            //The item index
+            //The array itself
+        function myFunc(total, value, index, array) {
+        return total + value; //samjh gya
+        }
+        document.getElementById("result7").innerHTML = "The sum of all numbers in an array : " + sum;
+
+
+        const numb = [45, 4, 9, 16, 25];
+        let total = numbers.reduce(myFunction, 100); //The reduce() method can accept an initial value
+
+        function myFunction(total, value) {
+        return total + value;
+        }
+        console.log(total); // output 199
+
+
+    //The reduceRight() works from right-to-left in the array
+        const numbr = [45, 4, 9, 16, 25];
+        let sums = numbr.reduceRight(myFunction);
+
+        function myFunction(total, value, index, array) {
+        return total + value;
+        }
+        console.log(sums); // output 99
+
+
+    //The every() method checks if all array values pass a test
+        const numbe = [45, 4, 9, 16, 25];
+        document.getElementById("result8").innerHTML = "find all over 18 using every method : " + numbe;
+
+        let allOver18 = numbe.every(myFunction);
+
+        function myFunction(value, index, array) {
+        return value > 18;
+        }
+        document.getElementById("result9").innerHTML = "All over 18 is : " + allOver18; //bolean value dega
+
+
+    //The some() method checks if some array values pass a test.
+        const number1 = [45, 4, 9, 16, 25];
+        document.getElementById("result10").innerHTML = "Find some over 18 using some method " + number1;
+        
+        let someOver18 = number1.some(myFunction);
+
+        function myFunction(value, index, array) {
+        return value > 18;
+        }
+        document.getElementById("result11").innerHTML = "some over 18 is : " + someOver18;
+
+
+    //The indexOf() method searches an array for an element value and returns its position
+        const fruits = ["Apple", "Orange", "Apple", "Mango"];
+        document.getElementById("result12").innerHTML = "Find the position of Apple : " + fruits;
+
+        let position = fruits.indexOf("Apple");
+        let position1 = fruits.indexOf("Apple") + 1; // +1 dene ka karan h ye index 0 se shart hota h to islye 0 + 1 = 1 
+
+        //Syntax - array.indexOf(item, start) 
+        //item	Required - The item to search for.
+        //start	Optional - Where to start the search. Negative values will start at the given position counting from the end, and search to the end.
+
+        document.getElementById("result13").innerHTML = "Apple is found in position " + position;
+        document.getElementById("result14").innerHTML = "Apple is found in position " + position1;
+
+        //Array.indexOf() returns -1 if the item is not found.
+        //If the item is present more than once, it returns the position of the first occurrence.
+
+
+    //The find() method returns the value of the first array element that passes a test function
+        const number2 = [4, 9, 16, 25, 29];
+        document.getElementById("result15").innerHTML = "Find number over 18 using find method : " + number2;
+
+        let first = number2.find(myFunction);
+
+        document.getElementById("result16").innerHTML = "First number over 18 is : " + first;
+
+        function myFunction(value, index, array) {
+        return value > 18;
+        }
+
+
+    //The findIndex() method returns the index of the first array element that passes a test function
+        const number3 = [4, 9, 16, 25, 29];
+        document.getElementById("result17").innerHTML = "find index of First number over 18 : " + number3;
+
+        function myFunction(value, index, array) {
+        return value > 18;
+        }
+        document.getElementById("result18").innerHTML = "First number over 18 has index : " + number3.findIndex(myFunction) + " + " + 1;
+
+
+    //The Array.from() method returns an Array object from any object with a length property or any iterable object
+        document.getElementById("result19").innerHTML = Array.from("ABCDEFG");
+
+
+    //The Array.keys() method returns an Array Iterator object with the keys of an array
+        const fruits1 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("result20").innerHTML = fruits1;
+
+        const keys = fruits1.keys();
+
+        let text = "";
+        for (let x of keys) {
+        text += x + "<br>";
+        }
+        document.getElementById("result21").innerHTML = text;
+
+
+    //The entries() method returns an Array Iterator object with key/value pairs
+        const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("result22").innerHTML = fruits2;
+
+        const f = fruits2.entries();
+
+        for (let x of f) {
+        document.getElementById("result23").innerHTML += x + "<br>";
+        }
+
+
+    //ES5 introduced Array.includes() to arrays. This allows us to check if an element is present in an array (including NaN, unlike indexOf)
+        const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("result24").innerHTML = fruits3.includes("Mango"); // output - true
+
+
+    //The "spread" operator spreads elements of iterable objects. The ... operator expands an iterable (like an array) into more elements
+        const q1 = ["Jan", "Feb", "Mar"];
+        const q2 = ["Apr", "May", "Jun"];
+        const q3 = ["Jul", "Aug", "Sep"];
+        const q4 = ["Oct", "Nov", "Dec"];
+
+        const year = [...q1, ...q2, ...q3, ...q4];
+        document.getElementById("result25").innerHTML = year; 
+
+    </script>
+</body>
+</html>
